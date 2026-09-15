@@ -1,69 +1,170 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { events, faqEntries, site } from "@/lib/site-data";
+import { EventCard } from "@/components/EventCard";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Halloween NYC 2026 | Parties, Events & Tickets in New York",
+  description:
+    "Explore Halloween NYC 2026: 21+ rooftop parties, underground events, masquerades, boat parties and nightlife across New York City.",
+  openGraph: {
+    title: "Halloween NYC 2026 | Parties, Events & Tickets in New York",
+    description:
+      "Explore 21+ Halloween parties, rooftop events, masquerades, boat parties and nightlife across New York City.",
+    type: "website",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Halloween NYC 2026 | Parties, Events & Tickets in New York",
+    description:
+      "Explore 21+ Halloween parties, rooftop events, masquerades, boat parties and nightlife across New York City.",
+  },
+  alternates: { canonical: "/" },
+};
+
+const previewFaqs = faqEntries.slice(0, 4);
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-white/10 px-5 py-24 text-center">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(208,48,37,0.25),transparent_60%)]" />
+        <div className="relative mx-auto max-w-3xl">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+            {site.dateRange} · New York City · 21+
           </p>
+          <h1 className="font-display mt-4 text-5xl leading-[1.05] sm:text-7xl">
+            THE ULTIMATE
+            <br />
+            NYC HALLOWEEN GUIDE
+          </h1>
+          <p className="mt-6 text-base text-muted sm:text-lg">
+            Discover Halloween NYC 2026: rooftop parties, underground events, a Hudson
+            River Halloween cruise, masquerade nights, and the ultimate New York
+            Halloween weekend guide.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/events"
+              className="rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
+            >
+              Explore Events +
+            </Link>
+            <Link
+              href="/halloween-passport-nyc-2026"
+              className="rounded-full border border-white/20 px-6 py-3 text-sm font-bold uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
+            >
+              Halloween Passport +
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Lineup intro */}
+      <section className="border-b border-white/10 px-5 py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted">
+            {site.name}
+          </p>
+          <h2 className="font-display mt-2 text-4xl leading-tight text-primary sm:text-5xl">
+            Five Venues. Four Nights.
+          </h2>
+          <p className="mt-4 text-sm text-muted sm:text-base">
+            From rooftops and hidden rooms to masks, black water, and Manhattan after
+            dark—choose your way into Halloween weekend.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm font-bold uppercase tracking-wide">
+            {events.map((e) => (
+              <span
+                key={e.slug}
+                className="rounded-full border border-white/10 px-4 py-1.5 text-accent"
+              >
+                {new Date(e.isoDate + "T00:00:00").toLocaleDateString("en-US", {
+                  weekday: "short",
+                })}{" "}
+                {new Date(e.isoDate + "T00:00:00").getDate()}
+              </span>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Event grid */}
+      <section id="events" className="px-5 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-center text-3xl sm:text-4xl">
+            Explore the Halloween NYC 2026 Lineup
+          </h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {events.map((event) => (
+              <EventCard key={event.slug} event={event} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Passport */}
+      <section className="border-y border-white/10 bg-surface/30 px-5 py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-3xl sm:text-4xl">Halloween Passport NYC 2026</h2>
+          <p className="mt-4 text-sm text-muted sm:text-base">
+            One pass to move through a weekend of eligible Halloween NYC 2026
+            experiences — official access, subject to valid 21+ ID and final Passport
+            Terms.
+          </p>
+          <Link
+            href="/halloween-passport-nyc-2026"
+            className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
+          >
+            Explore Passport Access +
+          </Link>
+        </div>
+      </section>
+
+      {/* FAQ teaser */}
+      <section className="px-5 py-16">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-center text-3xl sm:text-4xl">
+            Tickets, Entry &amp; Event Information
+          </h2>
+          <div className="mt-8 divide-y divide-white/10 rounded-2xl border border-white/10">
+            {previewFaqs.map((f) => (
+              <details key={f.question} className="group p-5">
+                <summary className="cursor-pointer list-none text-sm font-bold text-foreground marker:hidden">
+                  {f.question}
+                </summary>
+                <p className="mt-2 text-sm text-muted">{f.answer}</p>
+              </details>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link href="/faq" className="text-sm font-bold uppercase tracking-wide text-primary hover:text-accent">
+              Read the full FAQ →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="border-t border-white/10 px-5 py-20 text-center">
+        <h2 className="font-display text-4xl sm:text-5xl">Find Your Halloween Night</h2>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link
+            href="/events"
+            className="rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
+          >
+            Explore Events
+          </Link>
+          <Link
+            href="/faq"
+            className="rounded-full border border-white/20 px-6 py-3 text-sm font-bold uppercase tracking-wide text-foreground hover:border-accent hover:text-accent"
+          >
+            Read the FAQ
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
