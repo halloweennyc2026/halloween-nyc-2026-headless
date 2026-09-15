@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
+import { BloodStainImage } from "@/components/BloodStainImage";
 
 export const metadata: Metadata = {
   title: "About Halloween NYC 2026 | NYC Halloween Events & Nightlife",
@@ -86,6 +87,13 @@ export default function AboutPage() {
           party, coordinating a group or choosing one standout event, Halloween NYC 2026
           helps you plan the night with confidence.
         </p>
+      </div>
+
+      <div className="mx-auto mt-12 max-w-3xl">
+        <BloodStainImage
+          src="/gallery/luna-01.jpg"
+          alt="Crowd and DJ booth at a Halloween NYC nightlife event"
+        />
       </div>
 
       <div className="mx-auto mt-16 max-w-3xl space-y-12">

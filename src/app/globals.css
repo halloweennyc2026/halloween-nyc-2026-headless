@@ -165,3 +165,25 @@ body {
     opacity: 1;
   }
 }
+
+/* Editorial black & white image with a scroll-linked parallax drift —
+   a subtle, contained motion (image drifts within its own frame, never
+   the whole block), driven by a --p custom property from -1 to 1 that
+   JS sets as the image passes through the viewport. Defaults to 0 so a
+   reduced-motion or pre-JS visitor sees the image centered and static. */
+.blood-stain-wrap {
+  --p: 0;
+}
+.blood-stain-image {
+  transform: scale(1.15) translateY(calc(var(--p) * 6%));
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .blood-stain-image {
+    transform: none;
+  }
+}
+.blood-stain-mark {
+  opacity: 0.78;
+  filter: blur(0.5px);
+}
