@@ -65,3 +65,95 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Belt-and-suspenders for Reveal: if scripting is unavailable, force full
+   visibility rather than leaving content parked invisible forever. */
+@media (scripting: none) {
+  .reveal-fallback {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Homepage hero ambient drift — desktop only, slow, subtle, and skipped
+   entirely under reduced motion via the rule above overriding duration. */
+@keyframes hero-drift {
+  0%, 100% { background-position: 50% 0%; }
+  50% { background-position: 50% 8%; }
+}
+@media (min-width: 1024px) {
+  .hero-ambient {
+    animation: hero-drift 14s ease-in-out infinite;
+  }
+}
+
+/* One-time CTA glow on first paint — never continuous/looping. */
+@keyframes cta-glow-once {
+  0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+  35% { box-shadow: 0 0 24px 4px rgba(255, 102, 0, 0.45); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+}
+.cta-glow-once {
+  animation: cta-glow-once 1.8s ease-out 1;
+}
+
+/* Underline reveal used on card/link hover states. */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.link-underline:hover::after,
+.group:hover .link-underline::after {
+  transform: scaleX(1);
+}
+
+/* Gallery: dark + orange Halloween color treatment, consistent across
+   every photo — a warm sepia/orange grade over a darkened base, with a
+   bottom-up black gradient so captions stay legible. Hover lifts the
+   grade toward the true photo. */
+.gallery-tint {
+  position: relative;
+}
+.gallery-tint img {
+  filter: brightness(1.08) contrast(1.12) saturate(1.25) sepia(0.22) hue-rotate(-12deg);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+.gallery-tint:hover img {
+  filter: brightness(1.15) contrast(1.08) saturate(1.15) sepia(0.1) hue-rotate(-6deg);
+  transform: scale(1.04);
+}
+.gallery-tint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(208, 48, 37, 0.1) 30%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  pointer-events: none;
+}
+
+/* Ambient horror-motion video feature: cover fill, dimmed under its own
+   overlay/text, paused entirely for reduced-motion or no-JS visitors via
+   the poster image beneath it. */
+.motion-video {
+  filter: brightness(0.55) saturate(1.1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-video {
+    display: none;
+  }
+}

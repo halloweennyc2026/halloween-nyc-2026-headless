@@ -6,6 +6,7 @@ import { events, getEvent, site } from "@/lib/site-data";
 import { TicketButton } from "@/components/TicketButton";
 import { EventCard } from "@/components/EventCard";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
 
 export function generateStaticParams() {
   return events.map((e) => ({ slug: e.slug }));
@@ -146,49 +147,55 @@ export default async function EventPage({
         </div>
       </section>
 
-      <section className="border-b border-white/10 px-5 py-12">
-        <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wide text-muted">Date</p>
-            <p className="mt-1 text-sm">{event.dateLabel}</p>
-          </div>
-          {event.timeLabel && (
+      <Reveal>
+        <section className="border-b border-white/10 px-5 py-12">
+          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
             <div>
-              <p className="text-xs font-bold uppercase tracking-wide text-muted">Time</p>
-              <p className="mt-1 text-sm">{event.timeLabel}</p>
+              <p className="text-xs font-bold uppercase tracking-wide text-muted">Date</p>
+              <p className="mt-1 text-sm">{event.dateLabel}</p>
             </div>
-          )}
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wide text-muted">Venue</p>
-            <p className="mt-1 text-sm">{event.venue}</p>
-          </div>
-          {event.address && (
+            {event.timeLabel && (
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wide text-muted">Time</p>
+                <p className="mt-1 text-sm">{event.timeLabel}</p>
+              </div>
+            )}
             <div>
-              <p className="text-xs font-bold uppercase tracking-wide text-muted">Address</p>
-              <p className="mt-1 text-sm">{event.address}</p>
+              <p className="text-xs font-bold uppercase tracking-wide text-muted">Venue</p>
+              <p className="mt-1 text-sm">{event.venue}</p>
             </div>
-          )}
-        </div>
-      </section>
+            {event.address && (
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wide text-muted">Address</p>
+                <p className="mt-1 text-sm">{event.address}</p>
+              </div>
+            )}
+          </div>
+        </section>
+      </Reveal>
 
       <section className="px-5 py-14">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-center text-2xl sm:text-3xl">
-            Explore More Halloween NYC Events
-          </h2>
+          <Reveal>
+            <h2 className="font-display text-center text-2xl sm:text-3xl">
+              Explore More Halloween NYC Events
+            </h2>
+          </Reveal>
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
-            {related.map((e) => (
-              <EventCard key={e.slug} event={e} />
+            {related.map((e, i) => (
+              <Reveal key={e.slug} delayMs={i * 80}>
+                <EventCard event={e} />
+              </Reveal>
             ))}
           </div>
           <div className="mt-8 flex justify-center gap-6 text-sm text-muted">
-            <Link href="/faq" className="hover:text-accent">
+            <Link href="/faq" className="link-underline hover:text-accent">
               FAQ
             </Link>
-            <Link href="/refund-policy" className="hover:text-accent">
+            <Link href="/refund-policy" className="link-underline hover:text-accent">
               Refund Policy
             </Link>
-            <Link href="/terms-and-conditions" className="hover:text-accent">
+            <Link href="/terms-and-conditions" className="link-underline hover:text-accent">
               Terms and Conditions
             </Link>
           </div>

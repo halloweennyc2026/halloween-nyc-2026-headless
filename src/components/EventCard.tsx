@@ -6,7 +6,7 @@ export function EventCard({ event }: { event: EventRecord }) {
   return (
     <Link
       href={`/events/${event.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-surface/40 transition-colors hover:border-primary/60"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-surface/40 transition-[border-color,transform] duration-200 hover:border-primary/60 active:scale-[0.98]"
     >
       <div className="relative aspect-square w-full overflow-hidden">
         <Image
@@ -26,7 +26,7 @@ export function EventCard({ event }: { event: EventRecord }) {
           <p className="mt-1 text-sm text-muted">{event.venue}</p>
           <p className="mt-3 text-sm text-muted line-clamp-3">{event.description}</p>
         </div>
-        <span className="mt-5 inline-flex w-fit items-center gap-1 text-sm font-bold uppercase tracking-wide text-primary group-hover:text-accent">
+        <span className="link-underline mt-5 inline-flex w-fit items-center gap-1 text-sm font-bold uppercase tracking-wide text-primary group-hover:text-accent">
           Explore Event →
         </span>
       </div>

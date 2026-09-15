@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { events, faqEntries, site } from "@/lib/site-data";
-import { EventCard } from "@/components/EventCard";
+import { EventsByDate } from "@/components/EventsByDate";
+import { NightMotion } from "@/components/NightMotion";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Halloween NYC 2026 | Parties, Events & Tickets in New York",
@@ -28,9 +30,9 @@ const previewFaqs = faqEntries.slice(0, 4);
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero — always fully visible on load, no reveal/motion gating */}
       <section className="relative overflow-hidden border-b border-white/10 px-5 py-24 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(208,48,37,0.25),transparent_60%)]" />
+        <div className="hero-ambient pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(208,48,37,0.25),transparent_60%)] bg-[length:100%_140%]" />
         <div className="relative mx-auto max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
             {site.dateRange} · New York City · 21+
@@ -48,7 +50,7 @@ export default function HomePage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/events"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
+              className="cta-glow-once rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
             >
               Explore Events +
             </Link>
@@ -63,84 +65,87 @@ export default function HomePage() {
       </section>
 
       {/* Lineup intro */}
-      <section className="border-b border-white/10 px-5 py-16">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted">
-            {site.name}
-          </p>
-          <h2 className="font-display mt-2 text-4xl leading-tight text-primary sm:text-5xl">
-            Five Venues. Four Nights.
-          </h2>
-          <p className="mt-4 text-sm text-muted sm:text-base">
-            From rooftops and hidden rooms to masks, black water, and Manhattan after
-            dark—choose your way into Halloween weekend.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm font-bold uppercase tracking-wide">
-            {events.map((e) => (
-              <span
-                key={e.slug}
-                className="rounded-full border border-white/10 px-4 py-1.5 text-accent"
-              >
-                {new Date(e.isoDate + "T00:00:00").toLocaleDateString("en-US", {
-                  weekday: "short",
-                })}{" "}
-                {new Date(e.isoDate + "T00:00:00").getDate()}
-              </span>
-            ))}
+      <Reveal>
+        <section className="border-b border-white/10 px-5 py-16">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted">
+              {site.name}
+            </p>
+            <h2 className="font-display mt-2 text-4xl leading-tight text-primary sm:text-5xl">
+              Five Venues. Four Nights.
+            </h2>
+            <p className="mt-4 text-sm text-muted sm:text-base">
+              From rooftops and hidden rooms to masks, black water, and Manhattan after
+              dark—choose your way into Halloween weekend. Tap a date to see what&apos;s on
+              that night.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
-      {/* Event grid */}
+      {/* Event grid, filterable by date */}
       <section id="events" className="px-5 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-center text-3xl sm:text-4xl">
-            Explore the Halloween NYC 2026 Lineup
-          </h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {events.map((event) => (
-              <EventCard key={event.slug} event={event} />
-            ))}
-          </div>
+          <Reveal>
+            <h2 className="font-display text-center text-3xl sm:text-4xl">
+              Explore the Halloween NYC 2026 Lineup
+            </h2>
+          </Reveal>
+          <Reveal delayMs={80}>
+            <div className="mt-8">
+              <EventsByDate events={events} />
+            </div>
+          </Reveal>
         </div>
       </section>
 
+      <NightMotion />
+
       {/* Passport */}
-      <section className="border-y border-white/10 bg-surface/30 px-5 py-16">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-3xl sm:text-4xl">Halloween Passport NYC 2026</h2>
-          <p className="mt-4 text-sm text-muted sm:text-base">
-            One pass to move through a weekend of eligible Halloween NYC 2026
-            experiences — official access, subject to valid 21+ ID and final Passport
-            Terms.
-          </p>
-          <Link
-            href="/halloween-passport-nyc-2026"
-            className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
-          >
-            Explore Passport Access +
-          </Link>
-        </div>
-      </section>
+      <Reveal>
+        <section className="border-y border-white/10 bg-surface/30 px-5 py-16">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-display text-3xl sm:text-4xl">Halloween Passport NYC 2026</h2>
+            <p className="mt-4 text-sm text-muted sm:text-base">
+              One pass to move through a weekend of eligible Halloween NYC 2026
+              experiences — official access, subject to valid 21+ ID and final Passport
+              Terms.
+            </p>
+            <Link
+              href="/halloween-passport-nyc-2026"
+              className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
+            >
+              Explore Passport Access +
+            </Link>
+          </div>
+        </section>
+      </Reveal>
 
       {/* FAQ teaser */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-center text-3xl sm:text-4xl">
-            Tickets, Entry &amp; Event Information
-          </h2>
-          <div className="mt-8 divide-y divide-white/10 rounded-2xl border border-white/10">
-            {previewFaqs.map((f) => (
-              <details key={f.question} className="group p-5">
-                <summary className="cursor-pointer list-none text-sm font-bold text-foreground marker:hidden">
-                  {f.question}
-                </summary>
-                <p className="mt-2 text-sm text-muted">{f.answer}</p>
-              </details>
-            ))}
-          </div>
+          <Reveal>
+            <h2 className="font-display text-center text-3xl sm:text-4xl">
+              Tickets, Entry &amp; Event Information
+            </h2>
+          </Reveal>
+          <Reveal delayMs={100}>
+            <div className="mt-8 divide-y divide-white/10 rounded-2xl border border-white/10">
+              {previewFaqs.map((f) => (
+                <details key={f.question} className="group p-5">
+                  <summary className="cursor-pointer list-none text-sm font-bold text-foreground marker:hidden">
+                    {f.question}
+                  </summary>
+                  <p className="mt-2 text-sm text-muted">{f.answer}</p>
+                </details>
+              ))}
+            </div>
+          </Reveal>
           <div className="mt-6 text-center">
-            <Link href="/faq" className="text-sm font-bold uppercase tracking-wide text-primary hover:text-accent">
+            <Link
+              href="/faq"
+              className="link-underline text-sm font-bold uppercase tracking-wide text-primary hover:text-accent"
+            >
               Read the full FAQ →
             </Link>
           </div>
@@ -148,23 +153,25 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="border-t border-white/10 px-5 py-20 text-center">
-        <h2 className="font-display text-4xl sm:text-5xl">Find Your Halloween Night</h2>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/events"
-            className="rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
-          >
-            Explore Events
-          </Link>
-          <Link
-            href="/faq"
-            className="rounded-full border border-white/20 px-6 py-3 text-sm font-bold uppercase tracking-wide text-foreground hover:border-accent hover:text-accent"
-          >
-            Read the FAQ
-          </Link>
-        </div>
-      </section>
+      <Reveal>
+        <section className="border-t border-white/10 px-5 py-20 text-center">
+          <h2 className="font-display text-4xl sm:text-5xl">Find Your Halloween Night</h2>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/events"
+              className="rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
+            >
+              Explore Events
+            </Link>
+            <Link
+              href="/faq"
+              className="rounded-full border border-white/20 px-6 py-3 text-sm font-bold uppercase tracking-wide text-foreground hover:border-accent hover:text-accent"
+            >
+              Read the FAQ
+            </Link>
+          </div>
+        </section>
+      </Reveal>
     </>
   );
 }

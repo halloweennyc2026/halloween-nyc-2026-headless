@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { events, site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Halloween Party Venues NYC 2026 | Rooftops, Clubs & More",
@@ -54,21 +55,45 @@ export default function VenuesPage() {
           rooftops, hidden downtown spaces, Midtown nightlife, Brooklyn waterfront views
           and the Hudson after dark — each venue with its own way of doing Halloween.
         </p>
+        <p className="mt-4 text-sm text-muted sm:text-base">
+          The 2026 lineup spans six neighborhoods across Manhattan and Brooklyn — the
+          Lower East Side, Meatpacking District, SoHo, Midtown, the Hudson River and
+          Brooklyn Bridge Park — so pick the map pin, and the night, that fits your crew.
+        </p>
       </div>
 
-      <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-2">
-        {events.map((e) => (
-          <Link
-            key={e.slug}
-            href={`/events/${e.slug}`}
-            className="rounded-2xl border border-white/10 p-6 transition-colors hover:border-primary/60"
-          >
-            <h2 className="font-display text-xl">{e.venue}</h2>
-            <p className="mt-1 text-sm text-muted">
-              {e.neighborhood ?? e.address ?? ""}
-            </p>
-            <p className="mt-3 text-sm text-accent">{e.name} →</p>
-          </Link>
+      <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
+        {events.map((e, i) => (
+          <Reveal key={e.slug} delayMs={i * 60}>
+            <div className="group rounded-2xl border border-white/10 p-6 transition-colors hover:border-primary/60">
+              <Link href={`/events/${e.slug}`}>
+                <h2 className="font-display text-xl">{e.venue}</h2>
+                <p className="mt-1 text-sm text-muted">
+                  {e.neighborhood ?? e.address ?? ""}
+                </p>
+                <p className="mt-3 text-sm text-muted">{e.description}</p>
+              </Link>
+              {e.address && (
+                <div className="mt-4 overflow-hidden rounded-xl border border-white/10">
+                  <iframe
+                    title={`Map of ${e.venue}`}
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(
+                      e.address
+                    )}&output=embed`}
+                    className="h-40 w-full grayscale invert-[0.92] contrast-[1.1] hue-rotate-[10deg]"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              )}
+              <Link
+                href={`/events/${e.slug}`}
+                className="link-underline mt-4 inline-block text-sm text-accent"
+              >
+                {e.name} →
+              </Link>
+            </div>
+          </Reveal>
         ))}
       </div>
 

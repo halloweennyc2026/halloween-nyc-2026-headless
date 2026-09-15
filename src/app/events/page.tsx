@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { events } from "@/lib/site-data";
 import { EventCard } from "@/components/EventCard";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -47,8 +48,10 @@ export default function EventsHubPage() {
           </p>
         </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {events.map((event) => (
-            <EventCard key={event.slug} event={event} />
+          {events.map((event, i) => (
+            <Reveal key={event.slug} delayMs={i * 80}>
+              <EventCard event={event} />
+            </Reveal>
           ))}
         </div>
       </div>

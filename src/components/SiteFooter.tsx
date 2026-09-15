@@ -8,6 +8,7 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
       { href: "/events", label: "Events" },
       { href: "/venues", label: "Venues" },
       { href: "/halloween-passport-nyc-2026", label: "Halloween Passport" },
+      { href: "/gallery", label: "Gallery" },
       { href: "/blog", label: "Blog" },
     ],
   },

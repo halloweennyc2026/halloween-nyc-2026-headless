@@ -1,15 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-
-const NAV = [
-  { href: "/", label: "Home" },
-  { href: "/events", label: "Events" },
-  { href: "/venues", label: "Venues" },
-  { href: "/halloween-passport-nyc-2026", label: "Halloween Passport" },
-  { href: "/about-halloween-nyc-2026", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
-];
+import { NAV } from "@/lib/nav";
+import { MobileNav } from "@/components/MobileNav";
 
 export function SiteHeader() {
   return (
@@ -36,12 +28,15 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link
-          href="/events"
-          className="shrink-0 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
-        >
-          Explore Events
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/events"
+            className="hidden shrink-0 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition-transform hover:scale-105 sm:inline-flex"
+          >
+            Explore Events
+          </Link>
+          <MobileNav />
+        </div>
       </div>
     </header>
   );

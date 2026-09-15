@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { passport, site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Halloween Passport NYC 2026 | Multi-Event Halloween Access",
@@ -98,7 +99,7 @@ export default function PassportPage() {
           href={passport.url}
           target="_blank"
           rel="noreferrer"
-          className="mt-8 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
+          className="cta-glow-once mt-8 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
         >
           Explore Passport Access on Posh ↗
         </a>
@@ -108,25 +109,27 @@ export default function PassportPage() {
       </div>
 
       <div className="mx-auto mt-16 grid max-w-4xl gap-8 sm:grid-cols-2">
-        {SECTIONS.map((s) => (
-          <div key={s.title} className="rounded-2xl border border-white/10 p-6">
-            <h2 className="font-display text-xl">{s.title}</h2>
-            <p className="mt-2 text-sm text-muted">{s.body}</p>
-          </div>
+        {SECTIONS.map((s, i) => (
+          <Reveal key={s.title} delayMs={i * 80}>
+            <div className="rounded-2xl border border-white/10 p-6">
+              <h2 className="font-display text-xl">{s.title}</h2>
+              <p className="mt-2 text-sm text-muted">{s.body}</p>
+            </div>
+          </Reveal>
         ))}
       </div>
 
       <div className="mx-auto mt-16 flex max-w-3xl flex-wrap justify-center gap-6 text-sm text-muted">
-        <Link href="/events" className="hover:text-accent">
+        <Link href="/events" className="link-underline hover:text-accent">
           Explore Events
         </Link>
-        <Link href="/faq" className="hover:text-accent">
+        <Link href="/faq" className="link-underline hover:text-accent">
           Read FAQ
         </Link>
-        <Link href="/refund-policy" className="hover:text-accent">
+        <Link href="/refund-policy" className="link-underline hover:text-accent">
           Review Refund Policy
         </Link>
-        <Link href="/terms-and-conditions" className="hover:text-accent">
+        <Link href="/terms-and-conditions" className="link-underline hover:text-accent">
           Read Terms
         </Link>
       </div>

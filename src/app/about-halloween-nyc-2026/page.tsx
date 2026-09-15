@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "About Halloween NYC 2026 | NYC Halloween Events & Nightlife",
@@ -88,25 +89,27 @@ export default function AboutPage() {
       </div>
 
       <div className="mx-auto mt-16 max-w-3xl space-y-12">
-        {SECTIONS.map((s) => (
-          <div key={s.h2}>
-            <h2 className="font-display text-3xl text-primary">{s.h2}</h2>
-            <h3 className="mt-2 text-sm font-bold uppercase tracking-wide text-accent">
-              {s.h3}
-            </h3>
-            <p className="mt-3 text-sm text-muted sm:text-base">{s.body}</p>
-          </div>
+        {SECTIONS.map((s, i) => (
+          <Reveal key={s.h2} delayMs={i * 80}>
+            <div>
+              <h2 className="font-display text-3xl text-primary">{s.h2}</h2>
+              <h3 className="mt-2 text-sm font-bold uppercase tracking-wide text-accent">
+                {s.h3}
+              </h3>
+              <p className="mt-3 text-sm text-muted sm:text-base">{s.body}</p>
+            </div>
+          </Reveal>
         ))}
       </div>
 
       <div className="mx-auto mt-16 flex max-w-3xl flex-wrap justify-center gap-6 text-sm text-muted">
-        <Link href="/events" className="hover:text-accent">
+        <Link href="/events" className="link-underline hover:text-accent">
           Explore Events
         </Link>
-        <Link href="/faq" className="hover:text-accent">
+        <Link href="/faq" className="link-underline hover:text-accent">
           Read FAQ
         </Link>
-        <Link href="/refund-policy" className="hover:text-accent">
+        <Link href="/refund-policy" className="link-underline hover:text-accent">
           Ticket Policy
         </Link>
       </div>

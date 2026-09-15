@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { faqEntries, site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Halloween NYC 2026 FAQ | Tickets, Entry, Costumes & Events",
@@ -70,16 +71,18 @@ export default function FaqPage() {
           Halloween Passport, refunds and support.
         </p>
         <h2 className="font-display mt-12 text-2xl">Tickets, Entry &amp; Event Information</h2>
-        <div className="mt-6 divide-y divide-white/10 rounded-2xl border border-white/10">
-          {faqEntries.map((f) => (
-            <details key={f.question} className="group p-5">
-              <summary className="cursor-pointer list-none text-sm font-bold text-foreground marker:hidden">
-                {f.question}
-              </summary>
-              <p className="mt-2 text-sm text-muted">{f.answer}</p>
-            </details>
-          ))}
-        </div>
+        <Reveal>
+          <div className="mt-6 divide-y divide-white/10 rounded-2xl border border-white/10">
+            {faqEntries.map((f) => (
+              <details key={f.question} className="group p-5">
+                <summary className="cursor-pointer list-none text-sm font-bold text-foreground marker:hidden">
+                  {f.question}
+                </summary>
+                <p className="mt-2 text-sm text-muted">{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
