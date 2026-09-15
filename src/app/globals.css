@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+/* Numerals-only override: this face only contains glyphs for 0-9 and "+"
+   (unicode-range), so the browser substitutes it in automatically for any
+   digit anywhere on the site — inside headings, body copy, even FAQ prose —
+   without needing every number wrapped in its own markup. Everything else
+   keeps falling through to the normal font stack. */
+@font-face {
+  font-family: "Numerals";
+  src: url("/fonts/archivo-black-numerals.ttf") format("truetype");
+  unicode-range: U+30-39, U+2B;
+  /* Archivo Black only ships one (very bold) cut. Declaring the full
+     weight range here means digits render in it regardless of the
+     surrounding text's own weight, instead of only matching one value. */
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   /* Brand system — sourced from Assets/Color codes/COLOR SYSTEM.docx */
   --void-black: #000000;
@@ -33,10 +49,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  font-family: "Numerals", var(--font-barlow), sans-serif;
 }
 
 .font-display {
-  font-family: var(--font-cramps), Impact, sans-serif;
+  font-family: "Numerals", var(--font-cramps), Impact, sans-serif;
   letter-spacing: 0.01em;
 }
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { events, getEvent, site } from "@/lib/site-data";
 import { TicketButton } from "@/components/TicketButton";
@@ -25,11 +26,13 @@ export async function generateMetadata({
       title: event.seo.ogTitle,
       description: event.seo.ogDescription,
       url: `/events/${event.slug}`,
+      images: [{ url: event.ogImage, width: 1254, height: 1254, alt: event.heroAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: event.seo.ogTitle,
       description: event.seo.ogDescription,
+      images: [event.ogImage],
     },
     alternates: { canonical: `/events/${event.slug}` },
   };
@@ -107,27 +110,39 @@ export default async function EventPage({
       </nav>
 
       <section className="border-b border-white/10 px-5 py-14">
-        <div className="mx-auto max-w-4xl">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
-            {event.dateLabel}
-            {event.timeLabel ? ` · ${event.timeLabel}` : ""}
-          </p>
-          <h1 className="font-display mt-3 text-4xl leading-tight sm:text-6xl">
-            {event.name}
-          </h1>
-          <p className="mt-2 text-sm text-muted">
-            {event.venue}
-            {event.neighborhood ? ` · ${event.neighborhood}` : ""}
-          </p>
-          <p className="mt-6 max-w-2xl text-base text-muted">{event.description}</p>
-          <div className="mt-8">
-            <TicketButton ticket={event.ticket} />
-          </div>
-          {event.notes && (
-            <p className="mt-4 max-w-xl rounded-lg border border-hot-orange/30 bg-accent/10 p-3 text-xs text-accent">
-              {event.notes}
+        <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+              {event.dateLabel}
+              {event.timeLabel ? ` · ${event.timeLabel}` : ""}
             </p>
-          )}
+            <h1 className="font-display mt-3 text-4xl leading-tight sm:text-6xl">
+              {event.name}
+            </h1>
+            <p className="mt-2 text-sm text-muted">
+              {event.venue}
+              {event.neighborhood ? ` · ${event.neighborhood}` : ""}
+            </p>
+            <p className="mt-6 max-w-2xl text-base text-muted">{event.description}</p>
+            <div className="mt-8">
+              <TicketButton ticket={event.ticket} />
+            </div>
+            {event.notes && (
+              <p className="mt-4 max-w-xl rounded-lg border border-hot-orange/30 bg-accent/10 p-3 text-xs text-accent">
+                {event.notes}
+              </p>
+            )}
+          </div>
+          <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-white/10">
+            <Image
+              src={event.ogImage}
+              alt={event.heroAlt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 

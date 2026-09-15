@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { passport, site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -12,12 +13,14 @@ export const metadata: Metadata = {
     description:
       "Plan more of Halloween weekend with access to eligible Halloween NYC 2026 experiences. Review current details and terms.",
     url: "/halloween-passport-nyc-2026",
+    images: [{ url: passport.ogImage, width: 1254, height: 1254, alt: "Halloween Passport NYC 2026" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Halloween Passport NYC 2026 | Explore Eligible Experiences",
     description:
       "Plan more of Halloween weekend with access to eligible Halloween NYC 2026 experiences. Review current details and terms.",
+    images: [passport.ogImage],
   },
   alternates: { canonical: "/halloween-passport-nyc-2026" },
 };
@@ -69,13 +72,28 @@ export default function PassportPage() {
           ],
         }}
       />
-      <div className="mx-auto max-w-3xl text-center">
-        <h1 className="font-display text-4xl sm:text-5xl">Halloween Passport NYC 2026</h1>
-        <p className="mt-4 text-sm text-muted sm:text-base">
-          The Halloween Passport is your way to explore eligible Halloween NYC 2026
-          experiences across the city — a weekend of rooftop parties, underground
-          nightlife and late-night Halloween moments.
-        </p>
+      <div className="mx-auto grid max-w-4xl gap-10 sm:grid-cols-[0.9fr_1.1fr] sm:items-center sm:text-left text-center">
+        <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-2xl border border-white/10 sm:mx-0">
+          <Image
+            src={passport.ogImage}
+            alt="Halloween Passport NYC 2026"
+            fill
+            priority
+            sizes="(min-width: 640px) 40vw, 80vw"
+            className="object-cover"
+          />
+        </div>
+        <div>
+          <h1 className="font-display text-4xl sm:text-5xl">Halloween Passport NYC 2026</h1>
+          <p className="mt-4 text-sm text-muted sm:text-base">
+            The Halloween Passport is your way to explore eligible Halloween NYC 2026
+            experiences across the city — a weekend of rooftop parties, underground
+            nightlife and late-night Halloween moments.
+          </p>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-3xl text-center">
         <a
           href={passport.url}
           target="_blank"

@@ -34,6 +34,8 @@ export interface EventRecord {
   timeLabel?: string; // only when confirmed
   description: string;
   heroAlt: string;
+  heroImage: string;
+  ogImage: string;
   seo: {
     title: string;
     description: string;
@@ -52,13 +54,17 @@ export const events: EventRecord[] = [
   {
     slug: "dead-disco-public-hotel",
     name: "Dead Disco at PUBLIC Hotel",
-    venue: "PUBLIC Hotel",
+    venue: "Micro Club / Roof at PUBLIC Hotel",
+    address: "17 Chrystie St, New York, NY 10002",
     neighborhood: "Lower East Side, Manhattan",
     dateLabel: "Thursday, October 29, 2026",
     isoDate: "2026-10-29",
+    timeLabel: "10:00 PM – Late",
     description:
       "Dead Disco takes over PUBLIC Hotel for an opening night where disco glamour meets the darkness of the afterlife — moving between an intimate indoor micro-club and an open-air rooftop atmosphere.",
     heroAlt: "Dead Disco Halloween rooftop party at PUBLIC Hotel in New York City",
+    heroImage: "/events/dead-disco-wide.png",
+    ogImage: "/events/dead-disco-square.png",
     seo: {
       title: "Dead Disco at PUBLIC Hotel | Halloween NYC 2026 Tickets",
       description:
@@ -75,40 +81,47 @@ export const events: EventRecord[] = [
   },
   {
     slug: "the-masquerade-loulou",
-    name: "The Masquerade at LouLou",
+    name: "Masquerade Inferno at LouLou",
     venue: "LouLou",
     address: "176 8th Ave, New York, NY 10011",
-    neighborhood: "Chelsea, Manhattan",
+    neighborhood: "Meatpacking District, Manhattan",
     dateLabel: "Friday, October 30, 2026",
     isoDate: "2026-10-30",
     description:
       "A candlelit, Parisian-inspired hideaway beneath the streets of Manhattan, where ornate masks, costumes and late-night music create an intimate world of mystery and anonymity.",
-    heroAlt: "The Masquerade Halloween party at LouLou in New York City",
+    heroAlt: "Masquerade Inferno Halloween party at LouLou in New York City",
+    heroImage: "/events/masquerade-wide.png",
+    ogImage: "/events/masquerade-square.png",
     seo: {
-      title: "The Masquerade at LouLou | Halloween NYC 2026 Tickets",
+      title: "Masquerade Inferno at LouLou | Halloween NYC 2026 Tickets",
       description:
-        "The Masquerade at LouLou is a Halloween costume party in New York City on Friday, October 30, 2026. Explore details and official tickets.",
-      ogTitle: "The Masquerade at Loulou | October 30, 2026",
+        "Masquerade Inferno at LouLou is a Halloween costume party in New York City on Friday, October 30, 2026. Explore details and official tickets.",
+      ogTitle: "Masquerade Inferno at LouLou | October 30, 2026",
       ogDescription:
-        "Enter The Masquerade at Loulou, a Halloween costume party in New York City on Friday, October 30.",
+        "Enter Masquerade Inferno at LouLou, a Halloween costume party in New York City on Friday, October 30.",
     },
     ticket: {
       status: "confirmed",
       platform: "Eventbrite",
       url: "https://www.eventbrite.com/e/1999060291144",
     },
+    notes:
+      "Renamed from \"The Masquerade\" to \"Masquerade Inferno\" — confirmed by the official event flyer (Nine & Up Group). Neighborhood corrected to Meatpacking per the same flyer.",
   },
   {
     slug: "the-descent-submercer-soho",
     name: "The Descent at Submercer SoHo",
     venue: "Submercer",
-    address: "147 Mercer St, New York, NY 10012",
+    address: "147 1/2 Mercer St, New York, NY 10012",
     neighborhood: "SoHo, Manhattan",
     dateLabel: "Friday, October 30, 2026",
     isoDate: "2026-10-30",
+    timeLabel: "10:00 PM – Late",
     description:
       "Beneath the streets of SoHo, The Descent transforms Submercer into an intimate Halloween world of deep house, curated lighting, haunting visuals and late-night New York City energy.",
     heroAlt: "The Descent Halloween nightlife event at Submercer in SoHo, New York City",
+    heroImage: "/events/descent-wide.png",
+    ogImage: "/events/descent-square.png",
     seo: {
       title: "The Descent at Submercer SoHo | Halloween NYC 2026 Tickets",
       description:
@@ -122,6 +135,8 @@ export const events: EventRecord[] = [
       platform: "Eventbrite",
       url: "https://www.eventbrite.com/e/1999060500771",
     },
+    notes:
+      "Flyer inconsistency, not resolved on this site: the official flyer's corner badge says \"10/30\" but its own body text says \"Friday October 31st.\" October 31, 2026 is a Saturday, so \"Friday\" and \"the 31st\" can't both be right. Keeping the date already confirmed on the live site (Friday, October 30) until the founder confirms which is correct.",
   },
   {
     slug: "heaven-and-hell-eden",
@@ -131,9 +146,12 @@ export const events: EventRecord[] = [
     neighborhood: "Midtown Manhattan",
     dateLabel: "Saturday, October 31, 2026",
     isoDate: "2026-10-31",
+    timeLabel: "10:00 PM – 4:00 AM",
     description:
-      "A multi-level Halloween experience in the heart of Midtown — journey through immersive environments inspired by heaven above and hell below, with music, performers and elaborate décor.",
+      "Two realms, one night. A multi-level Halloween experience in the heart of Midtown — journey through immersive environments inspired by heaven above and hell below, with two floors, two different vibes, music, performers and elaborate décor.",
     heroAlt: "Heaven and Hell Halloween costume party at Eden in New York City",
+    heroImage: "/events/eden-wide.png",
+    ogImage: "/events/eden-square.png",
     seo: {
       title: "Heaven & Hell at Eden | Halloween NYC 2026 Tickets",
       description:
@@ -148,19 +166,22 @@ export const events: EventRecord[] = [
       url: "https://www.eventbrite.com/e/1999060605083",
     },
     notes:
-      "A second Eventbrite listing for this event exists (ID 1999060648212). Confirm which is canonical before running paid promotion.",
+      "Two unresolved conflicts: (1) a second Eventbrite listing exists (ID 1999060648212) — confirm which is canonical before running paid promotion. (2) The official event flyer prints the address as \"147 West 24th Street,\" which conflicts with \"20 W 36th St\" as shown on the live website. Kept the live-site address here until the founder confirms which is correct — do not treat either as settled.",
   },
   {
     slug: "haunting-on-the-hudson",
     name: "Haunting on the Hudson",
-    venue: "Hudson River boat party",
-    neighborhood: "Departure location to be announced",
+    venue: "S.S. Nightfall (Hudson River boat party)",
+    address: "Boarding at Pier 78, NYC",
+    neighborhood: "Hudson River, Manhattan",
     dateLabel: "Saturday, October 31, 2026",
     isoDate: "2026-10-31",
-    timeLabel: "10:00 PM – 4:00 AM",
+    timeLabel: "10:00 PM – 3:00 AM",
     description:
-      "A Halloween night on the Hudson River, surrounded by the Manhattan skyline — costumes, music, immersive décor and New York City after-dark energy, aboard the water.",
+      "A Halloween voyage like no other, aboard the S.S. Nightfall — costumes, music, immersive décor and New York City after-dark energy on the Hudson River. Costumes highly encouraged; limited capacity.",
     heroAlt: "Haunting on the Hudson Halloween boat party in New York City",
+    heroImage: "/events/hudson-wide.png",
+    ogImage: "/events/hudson-square.png",
     seo: {
       title: "Haunting on the Hudson | NYC Halloween Boat Party Tickets",
       description:
@@ -176,6 +197,8 @@ export const events: EventRecord[] = [
       // until the correct destination is supplied and verified.
       status: "pending",
     },
+    notes:
+      "Boarding location and vessel name (Pier 78, S.S. Nightfall) are now confirmed by the official event flyer — the earlier \"TBA\" is resolved. The ticket link is still not: no verified Eventbrite/Posh/DICE/Trybe URL exists for this event yet, so the ticket CTA remains pending on purpose.",
   },
   {
     slug: "luna-day-of-the-dead-1-hotel-brooklyn-bridge",
@@ -185,9 +208,12 @@ export const events: EventRecord[] = [
     neighborhood: "Brooklyn Bridge Park, Brooklyn",
     dateLabel: "Sunday, November 1, 2026",
     isoDate: "2026-11-01",
+    timeLabel: "2:00 PM – 2:00 AM",
     description:
       "Perched above Brooklyn with sweeping views of the Manhattan skyline and Brooklyn Bridge, LUNA: Day of the Dead transforms 1 Hotel Brooklyn Bridge into an elevated Halloween weekend experience.",
     heroAlt: "LUNA Day of the Dead event at 1 Hotel Brooklyn Bridge in New York City",
+    heroImage: "/events/luna-wide.png",
+    ogImage: "/events/luna-square.png",
     seo: {
       title: "LUNA: Day of the Dead at 1 Hotel | Halloween NYC 2026 Tickets",
       description:
@@ -208,8 +234,16 @@ export const passport = {
   name: "Halloween Passport NYC 2026",
   platform: "Posh" as const,
   url: "https://posh.vip/e/halloween-passport",
+  heroImage: "/events/passport-wide.png",
+  ogImage: "/events/passport-square.png",
   complianceLine:
     "Passport checkout is provided through Posh. Passport access applies to eligible experiences and remains subject to valid 21+ ID, venue capacity, event-specific requirements and final Passport Terms.",
+  // COMPLIANCE FLAG, not resolved on this site: the official Passport flyer
+  // reads "ONE PASS. EVERY EXPERIENCE." and "ALL ACCESS / ALL EVENTS" — the
+  // exact language this project's own rules say never to use ("all-access",
+  // implying guaranteed entry) unless contractually true. This site
+  // deliberately does NOT reuse that flyer copy. Flag the artwork itself
+  // for legal/founder review rather than silently matching it.
 };
 
 export interface FaqEntry {
