@@ -30,6 +30,12 @@ export function SiteFooter() {
         <div>
           <p className="font-display text-2xl">{site.name}</p>
           <p className="mt-3 max-w-xs text-sm text-muted">{site.dateRange} · New York City · 21+</p>
+          <a
+            href={`mailto:${site.email}`}
+            className="mt-3 inline-block text-sm text-muted hover:text-accent"
+          >
+            {site.email}
+          </a>
           <div className="mt-4 flex gap-4 text-sm text-muted">
             <a href={social.instagram} target="_blank" rel="noreferrer" className="hover:text-accent">
               Instagram

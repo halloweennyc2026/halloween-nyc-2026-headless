@@ -7,7 +7,7 @@ export const site = {
   name: "Halloween NYC 2026",
   legalName: "Nine & Up Group LLC",
   url: "https://www.halloweennyc2026.com",
-  email: "support@halloweennyc2026.com",
+  email: "info@halloweennyc2026.com",
   description:
     "Halloween NYC 2026 is a curated 21+ Halloween nightlife program operated by Nine & Up Group LLC, featuring rooftop parties, costume experiences, nightlife events, Halloween boat-party programming and official ticket information across New York City.",
   dateRange: "October 29 – November 1, 2026",
