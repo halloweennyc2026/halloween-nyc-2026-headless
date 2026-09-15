@@ -75,18 +75,6 @@ body {
   }
 }
 
-/* Homepage hero ambient drift — desktop only, slow, subtle, and skipped
-   entirely under reduced motion via the rule above overriding duration. */
-@keyframes hero-drift {
-  0%, 100% { background-position: 50% 0%; }
-  50% { background-position: 50% 8%; }
-}
-@media (min-width: 1024px) {
-  .hero-ambient {
-    animation: hero-drift 14s ease-in-out infinite;
-  }
-}
-
 /* One-time CTA glow on first paint — never continuous/looping. */
 @keyframes cta-glow-once {
   0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
@@ -155,5 +143,25 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .motion-video {
     display: none;
+  }
+}
+
+/* Hero scroll-motion: a cinematic zoom + parallax + fade driven by a
+   --scroll custom property (0 at rest, 1 once the hero has scrolled out
+   of view), set via JS and left at its 0 default when JS/scroll-linked
+   motion is unavailable (reduced motion, no-JS) — degrading to a static,
+   fully visible hero rather than a stuck mid-transition frame. */
+.hero-video-wrap {
+  --scroll: 0;
+}
+.hero-video {
+  transform: scale(calc(1 + var(--scroll) * 0.15)) translateY(calc(var(--scroll) * -3%));
+  opacity: calc(1 - var(--scroll) * 0.6);
+  will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    transform: none;
+    opacity: 1;
   }
 }

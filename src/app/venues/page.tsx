@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { events, site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
@@ -66,6 +67,21 @@ export default function VenuesPage() {
         {events.map((e, i) => (
           <Reveal key={e.slug} delayMs={i * 60}>
             <div className="group rounded-2xl border border-white/10 p-6 transition-colors hover:border-primary/60">
+              {e.venuePhotos?.[0] && (
+                <Link
+                  href={`/events/${e.slug}`}
+                  className="gallery-tint mb-4 -mt-6 -mx-6 block aspect-[16/9] overflow-hidden rounded-t-2xl"
+                >
+                  <Image
+                    src={e.venuePhotos[0].src}
+                    alt={e.venuePhotos[0].alt}
+                    width={800}
+                    height={450}
+                    className="h-full w-full object-cover"
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                  />
+                </Link>
+              )}
               <Link href={`/events/${e.slug}`}>
                 <h2 className="font-display text-xl">{e.venue}</h2>
                 <p className="mt-1 text-sm text-muted">

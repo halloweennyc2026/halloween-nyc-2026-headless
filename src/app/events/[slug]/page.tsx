@@ -7,6 +7,7 @@ import { TicketButton } from "@/components/TicketButton";
 import { EventCard } from "@/components/EventCard";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
+import { VenueMedia } from "@/components/VenueMedia";
 
 export function generateStaticParams() {
   return events.map((e) => ({ slug: e.slug }));
@@ -173,6 +174,16 @@ export default async function EventPage({
           </div>
         </section>
       </Reveal>
+
+      {(event.venuePhotos?.length || event.venueVideoYouTubeId) && (
+        <Reveal>
+          <section className="border-b border-white/10 px-5 py-12">
+            <div className="mx-auto max-w-4xl">
+              <VenueMedia event={event} />
+            </div>
+          </section>
+        </Reveal>
+      )}
 
       <section className="px-5 py-14">
         <div className="mx-auto max-w-6xl">

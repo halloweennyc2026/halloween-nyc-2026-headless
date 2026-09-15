@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { events, faqEntries, site } from "@/lib/site-data";
 import { EventsByDate } from "@/components/EventsByDate";
+import { HeroVideo } from "@/components/HeroVideo";
 import { NightMotion } from "@/components/NightMotion";
 import { Reveal } from "@/components/Reveal";
 
@@ -31,8 +32,8 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — always fully visible on load, no reveal/motion gating */}
-      <section className="relative overflow-hidden border-b border-white/10 px-5 py-24 text-center">
-        <div className="hero-ambient pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(208,48,37,0.25),transparent_60%)] bg-[length:100%_140%]" />
+      <section className="relative overflow-hidden border-b border-white/10 bg-background px-5 py-24 text-center">
+        <HeroVideo />
         <div className="relative mx-auto max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
             {site.dateRange} · New York City · 21+

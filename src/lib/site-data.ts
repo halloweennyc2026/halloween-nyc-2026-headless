@@ -48,6 +48,13 @@ export interface EventRecord {
     url?: string;
   };
   notes?: string;
+  // Real photography of the actual venue (not the event itself), sourced
+  // from the venue's own official site/press materials — see each image's
+  // credit comment at the point of use.
+  venuePhotos?: { src: string; alt: string }[];
+  // A real, official third-party YouTube video of the venue, embedded
+  // (never downloaded/rehosted) via the standard YouTube embed player.
+  venueVideoYouTubeId?: string;
 }
 
 export const events: EventRecord[] = [
@@ -55,7 +62,7 @@ export const events: EventRecord[] = [
     slug: "dead-disco-public-hotel",
     name: "Dead Disco at PUBLIC Hotel",
     venue: "Micro Club / Roof at PUBLIC Hotel",
-    address: "17 Chrystie St, New York, NY 10002",
+    address: "215 Chrystie St, New York, NY 10002",
     neighborhood: "Lower East Side, Manhattan",
     dateLabel: "Thursday, October 29, 2026",
     isoDate: "2026-10-29",
@@ -78,6 +85,13 @@ export const events: EventRecord[] = [
       platform: "Eventbrite",
       url: "https://www.eventbrite.com/e/1999059927055",
     },
+    notes:
+      "Address corrected to 215 Chrystie St — verified against PUBLIC Hotel's official site (publichotels.com) and independent listings. The prior \"17 Chrystie St\" did not match any verified source.",
+    // Credit: PUBLIC Hotel official site (publichotels.com/newyork/eat-and-drink/microclub).
+    venuePhotos: [
+      { src: "/venues/public-hotel-microclub.jpg", alt: "Micro Club bar at PUBLIC Hotel, New York City" },
+      { src: "/venues/public-hotel-dancefloor.jpg", alt: "Micro Club dance floor at PUBLIC Hotel, New York City" },
+    ],
   },
   {
     slug: "the-masquerade-loulou",
@@ -106,7 +120,11 @@ export const events: EventRecord[] = [
       url: "https://www.eventbrite.com/e/1999060291144",
     },
     notes:
-      "Renamed from \"The Masquerade\" to \"Masquerade Inferno\" — confirmed by the official event flyer (Nine & Up Group). Neighborhood corrected to Meatpacking per the same flyer.",
+      "Renamed from \"The Masquerade\" to \"Masquerade Inferno\" — confirmed by the official event flyer (Nine & Up Group). Neighborhood corrected to Meatpacking per the same flyer, though independent sources place 176 8th Ave in Chelsea, bordering the Meatpacking District — flagging for founder confirmation rather than silently picking one.",
+    // Credit: LouLou official site (loulounyc.com).
+    venuePhotos: [
+      { src: "/venues/loulou-exterior.jpeg", alt: "Dining room at LouLou, New York City" },
+    ],
   },
   {
     slug: "the-descent-submercer-soho",
@@ -137,6 +155,10 @@ export const events: EventRecord[] = [
     },
     notes:
       "Flyer inconsistency, not resolved on this site: the official flyer's corner badge says \"10/30\" but its own body text says \"Friday October 31st.\" October 31, 2026 is a Saturday, so \"Friday\" and \"the 31st\" can't both be right. Keeping the date already confirmed on the live site (Friday, October 30) until the founder confirms which is correct.",
+    // Credit: Bond Hospitality official site (bondhospitality.com/venues/submercer).
+    venuePhotos: [
+      { src: "/venues/submercer-interior.jpg", alt: "Bar at Submercer, New York City" },
+    ],
   },
   {
     slug: "heaven-and-hell-eden",
@@ -166,7 +188,12 @@ export const events: EventRecord[] = [
       url: "https://www.eventbrite.com/e/1999060605083",
     },
     notes:
-      "Two unresolved conflicts: (1) a second Eventbrite listing exists (ID 1999060648212) — confirm which is canonical before running paid promotion. (2) The official event flyer prints the address as \"147 West 24th Street,\" which conflicts with \"20 W 36th St\" as shown on the live website. Kept the live-site address here until the founder confirms which is correct — do not treat either as settled.",
+      "Two conflicts: (1) a second Eventbrite listing exists (ID 1999060648212) — confirm which is canonical before running paid promotion, still unresolved. (2) The official event flyer prints the address as \"147 West 24th Street,\" which conflicts with \"20 W 36th St\" as shown on the live website — independent sources (Eden's own venue listings) confirm 20 W 36th St as the real, current address of Eden NYC, so the flyer's address appears to be the error. Keeping this address with higher confidence, but still flagging for founder sign-off since the flyer itself was never corrected.",
+    // Credit: Eden's official site (edennewyork.com).
+    venuePhotos: [
+      { src: "/venues/eden-01.jpg", alt: "Floral-lit lounge ceiling at Eden, New York City" },
+      { src: "/venues/eden-05.jpg", alt: "Neon-lit lounge corridor at Eden, New York City" },
+    ],
   },
   {
     slug: "haunting-on-the-hudson",
@@ -198,7 +225,7 @@ export const events: EventRecord[] = [
       status: "pending",
     },
     notes:
-      "Boarding location and vessel name (Pier 78, S.S. Nightfall) are now confirmed by the official event flyer — the earlier \"TBA\" is resolved. The ticket link is still not: no verified Eventbrite/Posh/DICE/Trybe URL exists for this event yet, so the ticket CTA remains pending on purpose.",
+      "Boarding location and vessel name (Pier 78, S.S. Nightfall) are now confirmed by the official event flyer — the earlier \"TBA\" is resolved. The ticket link is still not: no verified Eventbrite/Posh/DICE/Trybe URL exists for this event yet, so the ticket CTA remains pending on purpose. No real photo/video of the specific vessel could be verified online — a generic Hudson River charter boat photo was deliberately NOT substituted, to avoid depicting the wrong boat as this event's own.",
   },
   {
     slug: "luna-day-of-the-dead-1-hotel-brooklyn-bridge",
@@ -227,6 +254,14 @@ export const events: EventRecord[] = [
       platform: "Eventbrite",
       url: "https://www.eventbrite.com/e/1999060749515",
     },
+    // Credit: 1 Hotels official site (1hotels.com/brooklyn-bridge/taste/harriets-rooftop).
+    venuePhotos: [
+      { src: "/venues/harriets-rooftop-01.jpg", alt: "Harriet's Rooftop lounge seating with Brooklyn Bridge view" },
+      { src: "/venues/harriets-rooftop-03.jpg", alt: "Rooftop pool at 1 Hotel Brooklyn Bridge with Manhattan skyline" },
+    ],
+    // Real, independently-published video tour of 1 Hotel Brooklyn Bridge,
+    // embedded via YouTube's standard player (not downloaded/rehosted).
+    venueVideoYouTubeId: "seYNqT0AU98",
   },
 ];
 
