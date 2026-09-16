@@ -188,10 +188,10 @@ export const events: EventRecord[] = [
     ticket: {
       status: "confirmed",
       platform: "Eventbrite",
-      url: "https://www.eventbrite.com/e/1999060605083",
+      url: "https://www.eventbrite.com/e/1999060648212",
     },
     notes:
-      "Two conflicts: (1) a second Eventbrite listing exists (ID 1999060648212) — confirm which is canonical before running paid promotion, still unresolved. (2) The official event flyer prints the address as \"147 West 24th Street,\" which conflicts with \"20 W 36th St\" as shown on the live website — independent sources (Eden's own venue listings) confirm 20 W 36th St as the real, current address of Eden NYC, so the flyer's address appears to be the error. Keeping this address with higher confidence, but still flagging for founder sign-off since the flyer itself was never corrected.",
+      "Ticket link corrected: this event and Haunting on the Hudson had their Eventbrite links swapped. The listing previously assigned here (ID 1999060605083) was independently verified by fetching the page directly — it is actually titled \"Halloween 2026: Haunting on the Hudson (Boat Party)\" at Pier 78, not an Eden listing. The other ID (1999060648212), previously flagged as an unconfirmed \"duplicate,\" is verified as the real \"Heaven & Hell @ EDEN\" listing (20 West 36th Street, matching this page) and is now used here. Separately: the official event flyer prints the address as \"147 West 24th Street,\" which conflicts with \"20 W 36th St\" as shown on the live website and now also confirmed by the correct Eventbrite listing — the flyer's address appears to be the error, but flagging for founder sign-off since the flyer itself was never corrected.",
     // Credit: Eden's official site (edennewyork.com).
     venuePhotos: [
       { src: "/venues/eden-01.jpg", alt: "Floral-lit lounge ceiling at Eden, New York City" },
@@ -202,11 +202,11 @@ export const events: EventRecord[] = [
     slug: "haunting-on-the-hudson",
     name: "Haunting on the Hudson",
     venue: "S.S. Nightfall (Hudson River boat party)",
-    address: "Boarding at Pier 78, NYC",
+    address: "Pier 78 at Hudson River Park, 455 12th Ave, New York, NY 10018",
     neighborhood: "Hudson River, Manhattan",
     dateLabel: "Saturday, October 31, 2026",
     isoDate: "2026-10-31",
-    timeLabel: "10:00 PM – 3:00 AM",
+    timeLabel: "10:00 PM – 4:00 AM",
     description:
       "A Halloween voyage like no other, aboard the S.S. Nightfall — costumes, music, immersive décor and New York City after-dark energy on the Hudson River. Costumes highly encouraged; limited capacity.",
     heroAlt: "Haunting on the Hudson Halloween boat party in New York City",
@@ -221,14 +221,15 @@ export const events: EventRecord[] = [
         "Spend Halloween night on the Hudson with a New York City boat-party experience on Saturday, October 31.",
     },
     ticket: {
-      // CRITICAL: do not fill this in with a guessed URL. The live Wix
-      // site's current Eventbrite link for this event incorrectly points
-      // to Heaven & Hell at Eden's listing. Do not publish a ticket CTA
-      // until the correct destination is supplied and verified.
-      status: "pending",
+      // Verified by fetching the listing directly: titled "Halloween 2026:
+      // Haunting on the Hudson (Boat Party)", Pier 78 at Hudson River Park —
+      // this is genuinely this event's own listing, not a guess.
+      status: "confirmed",
+      platform: "Eventbrite",
+      url: "https://www.eventbrite.com/e/1999060605083",
     },
     notes:
-      "Boarding location and vessel name (Pier 78, S.S. Nightfall) are now confirmed by the official event flyer — the earlier \"TBA\" is resolved. The ticket link is still not: no verified Eventbrite/Posh/DICE/Trybe URL exists for this event yet, so the ticket CTA remains pending on purpose. No real photo/video of the specific vessel could be verified online — a generic Hudson River charter boat photo was deliberately NOT substituted, to avoid depicting the wrong boat as this event's own.",
+      "Ticket link resolved: this event and Heaven & Hell at Eden had their Eventbrite links swapped in the data (this ID had been assigned to Eden instead). Independently verified by fetching both listings directly — this ID (1999060605083) is titled \"Halloween 2026: Haunting on the Hudson (Boat Party)\" at Pier 78, and is now correctly assigned here; Eden's real listing (1999060648212) has been moved to Eden's page. The verified listing also gives a precise address (455 12th Ave) and a slightly later end time (4:00 AM) than previously shown — both updated to match. Boarding location and vessel name (Pier 78, S.S. Nightfall) were already confirmed by the official event flyer. No real photo/video of the specific vessel could be verified online — a generic Hudson River charter boat photo was deliberately NOT substituted, to avoid depicting the wrong boat as this event's own.",
   },
   {
     slug: "luna-day-of-the-dead-1-hotel-brooklyn-bridge",
