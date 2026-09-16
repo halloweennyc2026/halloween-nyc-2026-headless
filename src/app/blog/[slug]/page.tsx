@@ -20,8 +20,18 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
-    openGraph: { title: post.ogTitle, description: post.ogDescription, type: "article" },
-    twitter: { card: "summary_large_image", title: post.ogTitle, description: post.ogDescription },
+    openGraph: {
+      title: post.ogTitle,
+      description: post.ogDescription,
+      type: "article",
+      images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.ogTitle,
+      description: post.ogDescription,
+      images: [site.defaultOgImage],
+    },
     alternates: { canonical: `/blog/${post.slug}` },
   };
 }

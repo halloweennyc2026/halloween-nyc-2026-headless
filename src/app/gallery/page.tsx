@@ -14,12 +14,14 @@ export const metadata: Metadata = {
     description:
       "Real photos from a past Halloween NYC nightlife event — costumes, DJs and after-dark energy.",
     url: "/gallery",
+    images: [{ url: galleryPhotos[0].src, width: 1667, height: 2500, alt: galleryPhotos[0].alt }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Halloween NYC Photo Gallery",
     description:
       "Real photos from a past Halloween NYC nightlife event — costumes, DJs and after-dark energy.",
+    images: [galleryPhotos[0].src],
   },
   alternates: { canonical: "/gallery" },
 };

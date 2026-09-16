@@ -11,12 +11,14 @@ export const metadata: Metadata = {
     description:
       "Read the terms governing website use, tickets, event entry, conduct and external ticketing.",
     url: "/terms-and-conditions",
+    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Halloween NYC 2026 Terms and Conditions",
     description:
       "Read the terms governing website use, tickets, event entry, conduct and external ticketing.",
+    images: [site.defaultOgImage],
   },
   alternates: { canonical: "/terms-and-conditions" },
 };

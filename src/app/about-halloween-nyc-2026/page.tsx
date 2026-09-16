@@ -14,12 +14,14 @@ export const metadata: Metadata = {
     description:
       "Meet the vision behind a curated guide to Halloween parties, costume nights and nightlife experiences across New York City.",
     url: "/about-halloween-nyc-2026",
+    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "About Halloween NYC 2026",
     description:
       "Meet the vision behind a curated guide to Halloween parties, costume nights and nightlife experiences across New York City.",
+    images: [site.defaultOgImage],
   },
   alternates: { canonical: "/about-halloween-nyc-2026" },
 };

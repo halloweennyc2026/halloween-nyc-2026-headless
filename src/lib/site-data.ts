@@ -11,6 +11,9 @@ export const site = {
   description:
     "Halloween NYC 2026 is a curated 21+ Halloween nightlife program operated by Nine & Up Group LLC, featuring rooftop parties, costume experiences, nightlife events, Halloween boat-party programming and official ticket information across New York City.",
   dateRange: "October 29 – November 1, 2026",
+  // Sitewide fallback social-share image for pages without their own —
+  // a real venue photo (Harriet's Rooftop, 1 Hotel Brooklyn Bridge).
+  defaultOgImage: "/venues/harriets-rooftop-01.jpg",
 } as const;
 
 export const social = {
@@ -70,8 +73,8 @@ export const events: EventRecord[] = [
     description:
       "Dead Disco takes over PUBLIC Hotel for an opening night where disco glamour meets the darkness of the afterlife — moving between an intimate indoor micro-club and an open-air rooftop atmosphere.",
     heroAlt: "Dead Disco Halloween rooftop party at PUBLIC Hotel in New York City",
-    heroImage: "/events/dead-disco-wide.png",
-    ogImage: "/events/dead-disco-square.png",
+    heroImage: "/events/dead-disco-wide.jpg",
+    ogImage: "/events/dead-disco-square.jpg",
     seo: {
       title: "Dead Disco at PUBLIC Hotel | Halloween NYC 2026 Tickets",
       description:
@@ -104,8 +107,8 @@ export const events: EventRecord[] = [
     description:
       "A candlelit, Parisian-inspired hideaway beneath the streets of Manhattan, where ornate masks, costumes and late-night music create an intimate world of mystery and anonymity.",
     heroAlt: "Masquerade Inferno Halloween party at LouLou in New York City",
-    heroImage: "/events/masquerade-wide.png",
-    ogImage: "/events/masquerade-square.png",
+    heroImage: "/events/masquerade-wide.jpg",
+    ogImage: "/events/masquerade-square.jpg",
     seo: {
       title: "Masquerade Inferno at LouLou | Halloween NYC 2026 Tickets",
       description:
@@ -138,8 +141,8 @@ export const events: EventRecord[] = [
     description:
       "Beneath the streets of SoHo, The Descent transforms Submercer into an intimate Halloween world of deep house, curated lighting, haunting visuals and late-night New York City energy.",
     heroAlt: "The Descent Halloween nightlife event at Submercer in SoHo, New York City",
-    heroImage: "/events/descent-wide.png",
-    ogImage: "/events/descent-square.png",
+    heroImage: "/events/descent-wide.jpg",
+    ogImage: "/events/descent-square.jpg",
     seo: {
       title: "The Descent at Submercer SoHo | Halloween NYC 2026 Tickets",
       description:
@@ -172,8 +175,8 @@ export const events: EventRecord[] = [
     description:
       "Two realms, one night. A multi-level Halloween experience in the heart of Midtown — journey through immersive environments inspired by heaven above and hell below, with two floors, two different vibes, music, performers and elaborate décor.",
     heroAlt: "Heaven and Hell Halloween costume party at Eden in New York City",
-    heroImage: "/events/eden-wide.png",
-    ogImage: "/events/eden-square.png",
+    heroImage: "/events/eden-wide.jpg",
+    ogImage: "/events/eden-square.jpg",
     seo: {
       title: "Heaven & Hell at Eden | Halloween NYC 2026 Tickets",
       description:
@@ -207,8 +210,8 @@ export const events: EventRecord[] = [
     description:
       "A Halloween voyage like no other, aboard the S.S. Nightfall — costumes, music, immersive décor and New York City after-dark energy on the Hudson River. Costumes highly encouraged; limited capacity.",
     heroAlt: "Haunting on the Hudson Halloween boat party in New York City",
-    heroImage: "/events/hudson-wide.png",
-    ogImage: "/events/hudson-square.png",
+    heroImage: "/events/hudson-wide.jpg",
+    ogImage: "/events/hudson-square.jpg",
     seo: {
       title: "Haunting on the Hudson | NYC Halloween Boat Party Tickets",
       description:
@@ -239,8 +242,8 @@ export const events: EventRecord[] = [
     description:
       "Perched above Brooklyn with sweeping views of the Manhattan skyline and Brooklyn Bridge, LUNA: Day of the Dead transforms 1 Hotel Brooklyn Bridge into an elevated Halloween weekend experience.",
     heroAlt: "LUNA Day of the Dead event at 1 Hotel Brooklyn Bridge in New York City",
-    heroImage: "/events/luna-wide.png",
-    ogImage: "/events/luna-square.png",
+    heroImage: "/events/luna-wide.jpg",
+    ogImage: "/events/luna-square.jpg",
     seo: {
       title: "LUNA: Day of the Dead at 1 Hotel | Halloween NYC 2026 Tickets",
       description:
@@ -269,8 +272,8 @@ export const passport = {
   name: "Halloween Passport NYC 2026",
   platform: "Posh" as const,
   url: "https://posh.vip/e/halloween-passport",
-  heroImage: "/events/passport-wide.png",
-  ogImage: "/events/passport-square.png",
+  heroImage: "/events/passport-wide.jpg",
+  ogImage: "/events/passport-square.jpg",
   complianceLine:
     "Passport checkout is provided through Posh. Passport access applies to eligible experiences and remains subject to valid 21+ ID, venue capacity, event-specific requirements and final Passport Terms.",
   // COMPLIANCE FLAG, not resolved on this site: the official Passport flyer
