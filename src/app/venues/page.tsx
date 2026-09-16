@@ -60,8 +60,8 @@ export default function VenuesPage() {
         </p>
         <p className="mt-4 text-sm text-muted sm:text-base">
           The 2026 lineup spans six neighborhoods across Manhattan and Brooklyn — the
-          Lower East Side, Meatpacking District, SoHo, Midtown, the Hudson River and
-          Brooklyn Bridge Park — so pick the map pin, and the night, that fits your crew.
+          Lower East Side, Chelsea, SoHo, Midtown, the Hudson River and Brooklyn Bridge
+          Park — so pick the map pin, and the night, that fits your crew.
         </p>
       </div>
 

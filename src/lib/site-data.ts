@@ -101,7 +101,7 @@ export const events: EventRecord[] = [
     name: "Masquerade Inferno at LouLou",
     venue: "LouLou",
     address: "176 8th Ave, New York, NY 10011",
-    neighborhood: "Meatpacking District, Manhattan",
+    neighborhood: "Chelsea, Manhattan",
     dateLabel: "Friday, October 30, 2026",
     isoDate: "2026-10-30",
     description:
@@ -123,7 +123,7 @@ export const events: EventRecord[] = [
       url: "https://www.eventbrite.com/e/1999060291144",
     },
     notes:
-      "Renamed from \"The Masquerade\" to \"Masquerade Inferno\" — confirmed by the official event flyer (Nine & Up Group). Neighborhood corrected to Meatpacking per the same flyer, though independent sources place 176 8th Ave in Chelsea, bordering the Meatpacking District — flagging for founder confirmation rather than silently picking one.",
+      "Renamed from \"The Masquerade\" to \"Masquerade Inferno\" — confirmed by the official event flyer (Nine & Up Group). Neighborhood corrected to Chelsea: the flyer printed \"Meatpacking,\" but 176 8th Ave is at West 19th Street — multiple independent sources (StreetEasy, RealtyHop) place that address squarely in Chelsea, several blocks north of the Meatpacking District (which sits south of West 14th St). Treating this as resolved rather than an open conflict, since the address itself settles it.",
     // Credit: LouLou official site (loulounyc.com).
     venuePhotos: [
       { src: "/venues/loulou-exterior.jpeg", alt: "Dining room at LouLou, New York City" },
