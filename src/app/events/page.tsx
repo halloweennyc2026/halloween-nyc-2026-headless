@@ -14,12 +14,14 @@ export const metadata: Metadata = {
     description:
       "Explore Halloween parties, rooftop nightlife, masquerades, boat events and official ticket options across New York City.",
     url: "/events",
+    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Halloween Events NYC 2026 | Explore the Lineup",
     description:
       "Explore Halloween parties, rooftop nightlife, masquerades, boat events and official ticket options across New York City.",
+    images: [site.defaultOgImage],
   },
   alternates: { canonical: "/events" },
 };

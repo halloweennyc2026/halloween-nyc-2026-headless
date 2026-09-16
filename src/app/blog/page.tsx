@@ -13,12 +13,14 @@ export const metadata: Metadata = {
     description:
       "Explore NYC Halloween guides for parties, costumes, venues, nightlife and Halloween weekend planning.",
     url: "/blog",
+    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Halloween NYC 2026 Blog | Plan Your Halloween Weekend",
     description:
       "Explore NYC Halloween guides for parties, costumes, venues, nightlife and Halloween weekend planning.",
+    images: [site.defaultOgImage],
   },
   alternates: { canonical: "/blog" },
 };
