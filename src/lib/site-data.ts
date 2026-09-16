@@ -157,7 +157,7 @@ export const events: EventRecord[] = [
       url: "https://www.eventbrite.com/e/1999060500771",
     },
     notes:
-      "Flyer inconsistency, not resolved on this site: the official flyer's corner badge says \"10/30\" but its own body text says \"Friday October 31st.\" October 31, 2026 is a Saturday, so \"Friday\" and \"the 31st\" can't both be right. Keeping the date already confirmed on the live site (Friday, October 30) until the founder confirms which is correct.",
+      "Flyer date resolved: the official flyer's corner badge said \"10/30\" but its body text said \"Friday October 31st\" — October 31, 2026 is a Saturday, so those couldn't both be right. Verified directly against the official Eventbrite listing, which lists the event as \"Friday, October 30 – Saturday, October 31, 2026\": it's a late-night party that starts Friday and runs past midnight into Saturday morning. The flyer's \"31st\" was a typo (should have read \"30th\"), likely a mix-up with the early-morning hours the party runs into. Friday, October 30 — the date already shown here — is correct.",
     // Credit: Bond Hospitality official site (bondhospitality.com/venues/submercer).
     venuePhotos: [
       { src: "/venues/submercer-interior.jpg", alt: "Bar at Submercer, New York City" },
