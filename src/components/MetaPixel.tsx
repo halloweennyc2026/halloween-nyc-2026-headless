@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { META_PIXEL_ID } from "@/lib/analytics";
+import { captureAttribution } from "@/lib/attribution";
 
 // Meta Pixel base code. The init script sends the first PageView; client-side
 // navigations don't reload the page, so later route changes send their own.
@@ -12,6 +13,7 @@ export function MetaPixel() {
   const firstLoad = useRef(true);
 
   useEffect(() => {
+    captureAttribution();
     if (firstLoad.current) {
       firstLoad.current = false;
       return;

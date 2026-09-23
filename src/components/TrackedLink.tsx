@@ -1,8 +1,10 @@
 "use client";
 
 import { trackEvent, type TicketClickParams, type TrackedEventName } from "@/lib/analytics";
+import { withAttribution } from "@/lib/attribution";
 
-// External checkout link that reports a click event (no-op without GA4).
+// External checkout link that reports a click event and carries any saved ad
+// attribution (fbclid, utm_*) through to the ticket platform.
 export function TrackedLink({
   href,
   eventName,
@@ -22,7 +24,13 @@ export function TrackedLink({
       target="_blank"
       rel="noreferrer"
       className={className}
-      onClick={() => trackEvent(eventName, params)}
+      onClick={(e) => {
+        e.currentTarget.href = withAttribution(href);
+        trackEvent(eventName, params);
+      }}
+      onAuxClick={(e) => {
+        e.currentTarget.href = withAttribution(href);
+      }}
     >
       {children}
     </a>
