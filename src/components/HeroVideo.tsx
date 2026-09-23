@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { NightVideoSources } from "@/components/NightVideoSources";
 
 export function HeroVideo() {
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
+    // Phones skip the scroll effect entirely (see .hero-video in globals.css).
+    const phone = window.matchMedia("(max-width: 767px)").matches;
+    if (reduceMotion || phone) return;
 
     let ticking = false;
     const el = wrapRef.current;
@@ -35,18 +38,19 @@ export function HeroVideo() {
       ref={wrapRef}
       className="hero-video-wrap pointer-events-none absolute inset-0 overflow-hidden"
     >
+      <div className="motion-poster motion-video absolute inset-0" aria-hidden="true" />
       <video
-        className="motion-video hero-video h-full w-full object-cover"
-        src="/video/night-motion.mp4"
-        poster="/gallery/luna-01.jpg"
+        className="motion-video hero-video relative h-full w-full object-cover"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.55)_0%,rgba(0,0,0,0.35)_45%,rgba(0,0,0,0.85)_100%)]" />
+      >
+        <NightVideoSources />
+      </video>
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.15)_45%,rgba(0,0,0,0.8)_100%)] md:bg-[linear-gradient(180deg,rgba(0,0,0,0.55)_0%,rgba(0,0,0,0.35)_45%,rgba(0,0,0,0.85)_100%)]" />
     </div>
   );
 }

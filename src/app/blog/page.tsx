@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Plan Halloween weekend in New York City with guides to 21+ parties, costumes, venues, nightlife, boat events and Halloween planning.",
   openGraph: {
+    type: "website",
     title: "Halloween NYC 2026 Blog | Plan Your Halloween Weekend",
     description:
       "Explore NYC Halloween guides for parties, costumes, venues, nightlife and Halloween weekend planning.",
@@ -35,6 +36,16 @@ export default function BlogIndexPage() {
           "@id": `${site.url}/blog#webpage`,
           url: `${site.url}/blog`,
           name: "Halloween NYC 2026 Blog",
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+          ],
         }}
       />
       <div className="mx-auto max-w-3xl text-center">

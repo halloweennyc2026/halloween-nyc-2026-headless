@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "See what Halloween NYC nightlife looks like: real photos from a past Halloween NYC event — costumes, DJs and the after-dark energy this year's lineup builds on.",
   openGraph: {
+    type: "website",
     title: "Halloween NYC Photo Gallery",
     description:
       "Real photos from a past Halloween NYC nightlife event — costumes, DJs and after-dark energy.",
@@ -62,7 +63,30 @@ export default function GalleryPage() {
         <GalleryGrid photos={galleryPhotos} />
       </div>
 
-      <div className="mx-auto mt-14 max-w-3xl text-center">
+      <div className="mx-auto mt-14 max-w-2xl text-sm text-muted sm:text-base">
+        <h2 className="font-display text-center text-2xl text-foreground sm:text-3xl">
+          Plan Your 2026 Night
+        </h2>
+        <p className="mt-4">
+          This year Halloween NYC 2026 runs {site.dateRange}, with six events across
+          Manhattan, Brooklyn and the Hudson River. Browse the{" "}
+          <Link href="/events" className="link-underline hover:text-accent">
+            full lineup
+          </Link>{" "}
+          for dates, venues and official ticket links. Read the{" "}
+          <Link href="/blog" className="link-underline hover:text-accent">
+            planning guides
+          </Link>{" "}
+          for costume ideas and night-by-night tips. If you&apos;re going out on more
+          than one night, see the{" "}
+          <Link href="/halloween-passport-nyc-2026" className="link-underline hover:text-accent">
+            Halloween Passport
+          </Link>
+          . Every event is 21+ with valid photo ID.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-3xl text-center">
         <Link
           href="/events"
           className="link-underline text-sm font-bold uppercase tracking-wide text-primary hover:text-accent"

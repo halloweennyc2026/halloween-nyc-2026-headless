@@ -24,6 +24,7 @@ export async function generateMetadata({
       title: post.ogTitle,
       description: post.ogDescription,
       type: "article",
+      url: `/blog/${post.slug}`,
       images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
     },
     twitter: {
@@ -45,6 +46,10 @@ export default async function BlogPostPage({
   const post = getBlogPost(slug);
   if (!post) notFound();
 
+  const related = post.relatedEventSlugs
+    ? events.filter((e) => post.relatedEventSlugs?.includes(e.slug))
+    : events;
+
   return (
     <article className="px-5 py-16">
       <JsonLd
@@ -58,6 +63,22 @@ export default async function BlogPostPage({
           mainEntityOfPage: `${site.url}/blog/${post.slug}`,
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: post.title.split(" | ")[0],
+              item: `${site.url}/blog/${post.slug}`,
+            },
+          ],
+        }}
+      />
       <div className="mx-auto max-w-2xl">
         <p className="text-xs text-muted">
           <Link href="/blog" className="hover:text-accent">
@@ -69,12 +90,23 @@ export default async function BlogPostPage({
         </h1>
         <p className="mt-6 text-base text-muted">{post.excerpt}</p>
 
+        {post.sections?.map((section) => (
+          <section key={section.heading} className="mt-10">
+            <h2 className="font-display text-2xl sm:text-3xl">{section.heading}</h2>
+            {section.paragraphs.map((para) => (
+              <p key={para.slice(0, 40)} className="mt-4 text-base text-muted">
+                {para}
+              </p>
+            ))}
+          </section>
+        ))}
+
         <div className="mt-10 rounded-xl border border-white/10 bg-surface/30 p-5">
           <p className="text-sm font-bold uppercase tracking-wide text-accent">
             Explore the events mentioned in this guide
           </p>
           <ul className="mt-3 space-y-2 text-sm">
-            {events.map((e) => (
+            {related.map((e) => (
               <li key={e.slug}>
                 <Link href={`/events/${e.slug}`} className="hover:text-accent">
                   {e.name} — {e.dateLabel}
