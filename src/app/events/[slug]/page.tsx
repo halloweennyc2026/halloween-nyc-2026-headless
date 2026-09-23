@@ -130,7 +130,7 @@ export default async function EventPage({
             </p>
             <p className="mt-6 max-w-2xl text-base text-muted">{event.description}</p>
             <div className="mt-8">
-              <TicketButton ticket={event.ticket} />
+              <TicketButton ticket={event.ticket} eventId={event.slug} position="event_hero" />
             </div>
           </div>
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-white/10">

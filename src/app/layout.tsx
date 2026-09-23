@@ -4,6 +4,7 @@ import { cramps, barlow, mono } from "@/lib/fonts";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JsonLd } from "@/components/JsonLd";
+import { Analytics } from "@/components/Analytics";
 import { site, social } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -51,6 +52,7 @@ export default function RootLayout({
         <SiteHeader />
         <main className="min-h-screen">{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );

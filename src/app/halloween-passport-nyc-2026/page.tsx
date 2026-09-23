@@ -4,6 +4,7 @@ import Image from "next/image";
 import { passport, site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
+import { TrackedLink } from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   title: "Halloween Passport NYC 2026 | Multi-Event Halloween Access",
@@ -96,14 +97,14 @@ export default function PassportPage() {
       </div>
 
       <div className="mx-auto mt-10 max-w-3xl text-center">
-        <a
+        <TrackedLink
           href={passport.url}
-          target="_blank"
-          rel="noreferrer"
+          eventName="passport_checkout_click"
+          params={{ event_id: "halloween_passport_2026", platform: passport.platform, position: "passport_hero" }}
           className="cta-glow-once mt-8 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
         >
           Explore Passport Access on Posh ↗
-        </a>
+        </TrackedLink>
         <p className="mx-auto mt-4 max-w-xl text-xs text-muted">{passport.checkoutLine}</p>
         <p className="mx-auto mt-2 max-w-xl text-xs text-muted">
           {passport.complianceLine}
