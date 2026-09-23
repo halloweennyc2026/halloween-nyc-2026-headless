@@ -127,7 +127,7 @@ export default async function EventPage({
             </p>
             <p className="mt-6 max-w-2xl text-base text-muted">{event.description}</p>
             <div className="mt-8">
-              <TicketButton ticket={event.ticket} />
+              <TicketButton ticket={event.ticket} eventId={event.slug} position="event_hero" />
             </div>
             {event.notes && (
               <p className="mt-4 max-w-xl rounded-lg border border-hot-orange/30 bg-accent/10 p-3 text-xs text-accent">

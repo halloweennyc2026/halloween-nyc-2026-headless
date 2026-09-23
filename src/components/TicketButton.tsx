@@ -1,6 +1,15 @@
 import type { EventRecord } from "@/lib/site-data";
+import { TrackedLink } from "@/components/TrackedLink";
 
-export function TicketButton({ ticket }: { ticket: EventRecord["ticket"] }) {
+export function TicketButton({
+  ticket,
+  eventId,
+  position,
+}: {
+  ticket: EventRecord["ticket"];
+  eventId: string;
+  position: string;
+}) {
   if (ticket.status === "pending") {
     return (
       <div className="inline-flex flex-col gap-2">
@@ -16,14 +25,14 @@ export function TicketButton({ ticket }: { ticket: EventRecord["ticket"] }) {
 
   return (
     <div className="inline-flex flex-col gap-2">
-      <a
-        href={ticket.url}
-        target="_blank"
-        rel="noreferrer"
+      <TrackedLink
+        href={ticket.url ?? ""}
+        eventName="ticket_cta_click"
+        params={{ event_id: eventId, platform: ticket.platform ?? "", position }}
         className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
       >
         Get Official Tickets on {ticket.platform} ↗
-      </a>
+      </TrackedLink>
       <span className="text-xs text-muted">
         Official ticket checkout is provided through {ticket.platform}.
       </span>
