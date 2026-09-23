@@ -24,6 +24,7 @@ export async function generateMetadata({
       title: post.ogTitle,
       description: post.ogDescription,
       type: "article",
+      url: `/blog/${post.slug}`,
       images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
     },
     twitter: {

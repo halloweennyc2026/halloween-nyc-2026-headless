@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Explore Halloween events in NYC for 2026, including rooftop parties, underground nightlife, masquerades, boat parties and official ticket links.",
   openGraph: {
+    type: "website",
     title: "Halloween Events NYC 2026 | Explore the Lineup",
     description:
       "Explore Halloween parties, rooftop nightlife, masquerades, boat events and official ticket options across New York City.",

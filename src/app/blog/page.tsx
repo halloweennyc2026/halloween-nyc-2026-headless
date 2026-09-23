@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Plan Halloween weekend in New York City with guides to 21+ parties, costumes, venues, nightlife, boat events and Halloween planning.",
   openGraph: {
+    type: "website",
     title: "Halloween NYC 2026 Blog | Plan Your Halloween Weekend",
     description:
       "Explore NYC Halloween guides for parties, costumes, venues, nightlife and Halloween weekend planning.",

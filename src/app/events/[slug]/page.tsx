@@ -25,6 +25,7 @@ export async function generateMetadata({
     title: event.seo.title,
     description: event.seo.description,
     openGraph: {
+      type: "website",
       title: event.seo.ogTitle,
       description: event.seo.ogDescription,
       url: `/events/${event.slug}`,

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "See what Halloween NYC nightlife looks like: real photos from a past Halloween NYC event — costumes, DJs and the after-dark energy this year's lineup builds on.",
   openGraph: {
+    type: "website",
     title: "Halloween NYC Photo Gallery",
     description:
       "Real photos from a past Halloween NYC nightlife event — costumes, DJs and after-dark energy.",

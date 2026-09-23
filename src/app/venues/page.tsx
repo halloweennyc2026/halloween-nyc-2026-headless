@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Explore Halloween NYC 2026 venues, from rooftop parties and SoHo nightlife to Chelsea, Midtown, Brooklyn and Hudson River experiences.",
   openGraph: {
+    type: "website",
     title: "Halloween Party Venues in NYC 2026",
     description:
       "Explore the venues, neighborhoods and nightlife settings behind Halloween NYC 2026 experiences.",
