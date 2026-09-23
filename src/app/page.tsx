@@ -30,6 +30,10 @@ export const metadata: Metadata = {
 
 const previewFaqs = faqEntries.slice(0, 4);
 
+// EventsByDate is a client component, so its props are serialized into the
+// page source. Strip internal verification notes before they get there.
+const publicEvents = events.map((e) => ({ ...e, notes: undefined }));
+
 export default function HomePage() {
   return (
     <>
@@ -96,7 +100,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delayMs={80}>
             <div className="mt-8">
-              <EventsByDate events={events} />
+              <EventsByDate events={publicEvents} />
             </div>
           </Reveal>
         </div>
