@@ -8,10 +8,9 @@ import { site, social } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: "Halloween NYC 2026 | Parties, Events & Tickets in New York",
-    template: "%s | Halloween NYC 2026",
-  },
+  // No title template: every page title already carries the brand, and a
+  // "%s | Halloween NYC 2026" template doubled it and pushed titles past 60 chars.
+  title: "Halloween NYC 2026 | Parties, Events & Tickets in New York",
   description:
     "Explore Halloween NYC 2026: 21+ rooftop parties, underground events, masquerades, boat parties and nightlife across New York City.",
 };

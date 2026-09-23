@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Explore eligible Halloween NYC 2026 experiences with the Halloween Passport, featuring parties, rooftop events and nightlife across New York City.",
   openGraph: {
+    type: "website",
     title: "Halloween Passport NYC 2026 | Explore Eligible Experiences",
     description:
       "Plan more of Halloween weekend with access to eligible Halloween NYC 2026 experiences. Review current details and terms.",

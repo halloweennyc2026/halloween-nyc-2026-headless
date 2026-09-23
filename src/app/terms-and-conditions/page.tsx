@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Read the Halloween NYC 2026 terms for website use, tickets, 21+ entry, event policies, conduct, external ticketing and support.",
   openGraph: {
+    type: "website",
     title: "Halloween NYC 2026 Terms and Conditions",
     description:
       "Read the terms governing website use, tickets, event entry, conduct and external ticketing.",

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Review Halloween NYC 2026 ticket refunds, transfers, event changes, ticket-provider terms and customer-support guidance before purchasing.",
   openGraph: {
+    type: "website",
     title: "Halloween NYC 2026 Refund Policy",
     description:
       "Review ticket refunds, transfers, event changes and ticket-provider terms before purchasing.",

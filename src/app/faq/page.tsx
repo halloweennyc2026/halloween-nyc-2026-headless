@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Get answers about Halloween NYC 2026 tickets, 21+ entry, costumes, event venues, VIP tables, the Halloween Passport, refunds and support.",
   openGraph: {
+    type: "website",
     title: "Halloween NYC 2026 FAQ | Tickets, Entry & Event Info",
     description:
       "Find answers about tickets, entry, costumes, venues, the Halloween Passport, refunds and support.",
