@@ -8,7 +8,9 @@ export function HeroVideo() {
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
+    // Phones skip the scroll effect entirely (see .hero-video in globals.css).
+    const phone = window.matchMedia("(max-width: 767px)").matches;
+    if (reduceMotion || phone) return;
 
     let ticking = false;
     const el = wrapRef.current;

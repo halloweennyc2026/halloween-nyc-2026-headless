@@ -57,7 +57,7 @@ export default function HomePage() {
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
             {site.dateRange} · New York City · 21+
           </p>
-          <h1 className="font-display mt-4 text-5xl leading-[1.05] sm:text-7xl">
+          <h1 className="font-display mt-4 text-[2.5rem] leading-[1.05] sm:text-7xl">
             THE ULTIMATE{" "}
             <br />
             NYC HALLOWEEN GUIDE

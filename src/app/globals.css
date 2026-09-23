@@ -172,6 +172,15 @@ body {
     opacity: 1;
   }
 }
+/* Phones: no scroll-linked zoom/fade. Transforming a filtered video on every
+   scroll frame stutters and can flicker on iOS Safari. */
+@media (max-width: 767px) {
+  .hero-video {
+    transform: none;
+    opacity: 1;
+    will-change: auto;
+  }
+}
 
 /* Editorial black & white image with a scroll-linked parallax drift —
    a subtle, contained motion (image drifts within its own frame, never
