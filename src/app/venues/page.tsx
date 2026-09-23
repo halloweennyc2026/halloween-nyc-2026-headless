@@ -26,6 +26,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/venues" },
 };
 
+// Local-intent headings for the neighborhood section, keyed by event slug.
+const AREA_HEADINGS: Record<string, string> = {
+  "dead-disco-public-hotel": "Halloween on the Lower East Side",
+  "the-masquerade-loulou": "Halloween in Chelsea",
+  "the-descent-submercer-soho": "Halloween in SoHo",
+  "heaven-and-hell-eden": "Halloween in Midtown",
+  "haunting-on-the-hudson": "Halloween on the Hudson River",
+  "luna-day-of-the-dead-1-hotel-brooklyn-bridge": "Halloween in Brooklyn",
+};
+
 export default function VenuesPage() {
   return (
     <section className="px-5 py-16">
@@ -113,6 +123,44 @@ export default function VenuesPage() {
             </div>
           </Reveal>
         ))}
+      </div>
+
+      <div className="mx-auto mt-16 max-w-3xl">
+        <h2 className="font-display text-center text-2xl sm:text-3xl">
+          Find a Halloween Party by Neighborhood
+        </h2>
+        <p className="mt-4 text-center text-sm text-muted sm:text-base">
+          Every 2026 event is in a different part of the city. Start with the
+          neighborhood you want to be in, then check the night.
+        </p>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          {events.map((e) => (
+            <div key={e.slug}>
+              <h3 className="text-sm font-bold uppercase tracking-wide text-accent">
+                {AREA_HEADINGS[e.slug] ?? `Halloween at ${e.venue}`}
+              </h3>
+              <p className="mt-2 text-sm text-muted">
+                <Link href={`/events/${e.slug}`} className="link-underline hover:text-accent">
+                  {e.name}
+                </Link>{" "}
+                at {e.venue}, {e.dateLabel}
+                {e.timeLabel ? `, ${e.timeLabel}` : ""}.
+                {e.address ? ` ${e.address}.` : ""}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-8 text-center text-sm text-muted">
+          All events are 21+ with valid photo ID. See the{" "}
+          <Link href="/events" className="link-underline hover:text-accent">
+            full lineup
+          </Link>{" "}
+          or the{" "}
+          <Link href="/faq" className="link-underline hover:text-accent">
+            FAQ
+          </Link>{" "}
+          for tickets and entry.
+        </p>
       </div>
 
       <p className="mx-auto mt-10 max-w-2xl text-center text-xs text-muted">
