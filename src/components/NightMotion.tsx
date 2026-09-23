@@ -1,20 +1,22 @@
 import Link from "next/link";
+import { NightVideoSources } from "@/components/NightVideoSources";
 
 export function NightMotion() {
   return (
     <section className="relative overflow-hidden border-y border-white/10 px-5 py-24 text-center">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#000_0%,#1a0402_50%,#000_100%)]" />
+      <div className="motion-poster motion-video absolute inset-0" aria-hidden="true" />
       <video
         className="motion-video absolute inset-0 h-full w-full object-cover"
-        src="/video/night-motion.mp4"
-        poster="/gallery/luna-01.jpg"
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
         aria-hidden="true"
-      />
+      >
+        <NightVideoSources />
+      </video>
       <div className="absolute inset-0 bg-black/40" />
       <div className="relative mx-auto max-w-2xl">
         <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Read the Halloween NYC 2026 terms for website use, tickets, 21+ entry, event policies, conduct, external ticketing and support.",
   openGraph: {
+    type: "website",
     title: "Halloween NYC 2026 Terms and Conditions",
     description:
       "Read the terms governing website use, tickets, event entry, conduct and external ticketing.",
@@ -46,7 +47,7 @@ const SECTIONS = [
       },
       {
         heading: "Third-party ticketing platforms",
-        body: "All ticket purchases are made through independent, authorized ticketing platforms (such as Eventbrite or Posh), not directly through this website. Your purchase is subject to that platform's own terms of service, privacy policy, and payment terms, which you should review before buying. Halloween NYC 2026 and Nine & Up Group LLC are not the seller of record and are not responsible for the ticketing platform's processing, security, or fulfillment of your order.",
+        body: "All ticket purchases are made through independent, authorized ticketing platforms (such as Trybe or Posh), not directly through this website. Your purchase is subject to that platform's own terms of service, privacy policy, and payment terms, which you should review before buying. Halloween NYC 2026 and Nine & Up Group LLC are not the seller of record and are not responsible for the ticketing platform's processing, security, or fulfillment of your order.",
       },
       {
         heading: "Event details and changes",
@@ -112,11 +113,11 @@ const SECTIONS = [
       },
       {
         heading: "Information handled by ticketing platforms",
-        body: "When you purchase a ticket, your name, email, and payment details are collected and processed directly by the ticketing platform you use (such as Eventbrite or Posh), under that platform's own privacy policy — not by this website. Review the ticketing platform's privacy policy before completing a purchase.",
+        body: "When you purchase a ticket, your name, email, and payment details are collected and processed directly by the ticketing platform you use (such as Trybe or Posh), under that platform's own privacy policy — not by this website. Review the ticketing platform's privacy policy before completing a purchase.",
       },
       {
         heading: "Cookies and analytics",
-        body: "As of this policy's last update, this website does not use third-party advertising or analytics tracking cookies. If that changes, this policy will be updated to describe what is used and how to opt out.",
+        body: "This website uses the Meta Pixel, an advertising and analytics tool from Meta Platforms, Inc., to measure visits and ticket-link clicks and to show relevant ads on Facebook and Instagram. It may set cookies and collect information such as pages viewed, browser and device details, and IP address, which Meta processes under its own privacy policy. Links to ticket platforms may carry ad-campaign identifiers so purchases can be attributed to the ad that led to them. You can manage ad preferences in your Facebook or Instagram settings, block cookies in your browser, or opt out of interest-based ads at optout.aboutads.info.",
       },
       {
         heading: "How we use information",
@@ -181,7 +182,7 @@ export default function TermsPage() {
       <div className="mx-auto max-w-3xl">
         <h1 className="font-display text-4xl sm:text-5xl">Terms and Conditions</h1>
         <p className="mt-2 text-xs uppercase tracking-wide text-muted">
-          Last updated: September 16, 2026
+          Last updated: September 23, 2026
         </p>
 
         <div className="mt-6 rounded-lg border border-hot-orange/30 bg-accent/10 p-4 text-xs text-accent">

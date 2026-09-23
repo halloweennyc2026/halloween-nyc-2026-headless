@@ -140,6 +140,13 @@ body {
 .motion-video {
   filter: brightness(0.55) saturate(1.1);
 }
+/* Phones: the portrait crop is mostly dark wall, so lift it more or the
+   hero reads as solid black. The hero gradient is lighter on phones too. */
+@media (max-width: 767px) {
+  .hero-video-wrap .motion-video {
+    filter: brightness(0.85) saturate(1.2);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .motion-video {
     display: none;
@@ -165,6 +172,15 @@ body {
     opacity: 1;
   }
 }
+/* Phones: no scroll-linked zoom/fade. Transforming a filtered video on every
+   scroll frame stutters and can flicker on iOS Safari. */
+@media (max-width: 767px) {
+  .hero-video {
+    transform: none;
+    opacity: 1;
+    will-change: auto;
+  }
+}
 
 /* Editorial black & white image with a scroll-linked parallax drift —
    a subtle, contained motion (image drifts within its own frame, never
@@ -186,4 +202,22 @@ body {
 .blood-stain-mark {
   opacity: 0.78;
   filter: blur(0.5px);
+}
+
+/* Still first frame of the night-motion video, shown until the video paints
+   (and instead of it for reduced motion or when autoplay is blocked, e.g. iOS
+   Low Power Mode). It's the same frame the video starts on, so there's no
+   visible jump. Portrait frame on phones, 16:9 on larger screens. */
+.motion-poster {
+  background: #000 url("/gallery/night-motion-mobile-poster.jpg") center / cover no-repeat;
+}
+@media (min-width: 768px) {
+  .motion-poster {
+    background-image: url("/gallery/night-motion-poster.jpg");
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-poster.motion-video {
+    display: block;
+  }
 }
