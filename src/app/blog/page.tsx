@@ -38,6 +38,16 @@ export default function BlogIndexPage() {
           name: "Halloween NYC 2026 Blog",
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+          ],
+        }}
+      />
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="font-display text-4xl sm:text-5xl">Halloween NYC 2026 Blog</h1>
         <p className="mt-4 text-sm text-muted sm:text-base">
