@@ -53,7 +53,7 @@ export default async function EventPage({
 
   return (
     <>
-      {event.ticket.status === "confirmed" && (
+      {event.ticket.status === "confirmed" && !event.eventSchemaBlocked && (
         <JsonLd
           data={{
             "@context": "https://schema.org",
@@ -68,10 +68,10 @@ export default async function EventPage({
               address: event.address ?? undefined,
             },
             description: event.description,
+            // No `availability`: stock status isn't verified, so it isn't claimed.
             offers: {
               "@type": "Offer",
               url: event.ticket.url,
-              availability: "https://schema.org/InStock",
             },
             organizer: {
               "@type": "Organization",
@@ -129,11 +129,6 @@ export default async function EventPage({
             <div className="mt-8">
               <TicketButton ticket={event.ticket} />
             </div>
-            {event.notes && (
-              <p className="mt-4 max-w-xl rounded-lg border border-hot-orange/30 bg-accent/10 p-3 text-xs text-accent">
-                {event.notes}
-              </p>
-            )}
           </div>
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-white/10">
             <Image

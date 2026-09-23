@@ -50,7 +50,11 @@ export interface EventRecord {
     platform?: "Eventbrite";
     url?: string;
   };
+  // Internal verification notes. Never rendered on the public site.
   notes?: string;
+  // When true, the page ships no Event JSON-LD. Set by founder decision;
+  // only the founder lifts it.
+  eventSchemaBlocked?: boolean;
   // Real photography of the actual venue (not the event itself), sourced
   // from the venue's own official site/press materials — see each image's
   // credit comment at the point of use.
@@ -208,7 +212,7 @@ export const events: EventRecord[] = [
     isoDate: "2026-10-31",
     timeLabel: "10:00 PM – 4:00 AM",
     description:
-      "A Halloween voyage like no other, aboard the S.S. Nightfall — costumes, music, immersive décor and New York City after-dark energy on the Hudson River. Costumes highly encouraged; limited capacity.",
+      "A Halloween voyage like no other, aboard the S.S. Nightfall — costumes, music, immersive décor and New York City after-dark energy on the Hudson River. Costumes highly encouraged.",
     heroAlt: "Haunting on the Hudson Halloween boat party in New York City",
     heroImage: "/events/hudson-wide.jpg",
     ogImage: "/events/hudson-square.jpg",
@@ -230,6 +234,9 @@ export const events: EventRecord[] = [
     },
     notes:
       "Ticket link resolved: this event and Heaven & Hell at Eden had their Eventbrite links swapped in the data (this ID had been assigned to Eden instead). Independently verified by fetching both listings directly — this ID (1999060605083) is titled \"Halloween 2026: Haunting on the Hudson (Boat Party)\" at Pier 78, and is now correctly assigned here; Eden's real listing (1999060648212) has been moved to Eden's page. The verified listing also gives a precise address (455 12th Ave) and a slightly later end time (4:00 AM) than previously shown — both updated to match. Boarding location and vessel name (Pier 78, S.S. Nightfall) were already confirmed by the official event flyer. No real photo/video of the specific vessel could be verified online — a generic Hudson River charter boat photo was deliberately NOT substituted, to avoid depicting the wrong boat as this event's own.",
+    // Founder block (2026-09-23): no Event schema, ads or email for Hudson
+    // until the founder confirms the ticket-link fix and lifts the block.
+    eventSchemaBlocked: true,
   },
   {
     slug: "luna-day-of-the-dead-1-hotel-brooklyn-bridge",
