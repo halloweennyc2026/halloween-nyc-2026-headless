@@ -16,6 +16,20 @@ export const SHOP_REVALIDATE_SECONDS = 300;
 // launch. Flip to true in the same PR that adds /shop to the sitemap.
 export const SHOP_INDEXABLE = false;
 
+// Master switch for links *into* the shop from the rest of the site (event
+// pages, FAQ, blog). Off until the shop has live products, so no existing
+// page ever links to a 404.
+export const SHOP_LINKS_LIVE = false;
+
+// PROPOSED "Shop the look" pairing of event → collection, pending founder
+// approval. Events not listed link to /shop generally.
+export const EVENT_LOOKS: Readonly<Record<string, { collection: string; label: string }>> = {
+  "the-masquerade-loulou": { collection: "masks", label: "Masks" },
+  "heaven-and-hell-eden": { collection: "gothic", label: "Gothic looks" },
+  "the-descent-submercer-soho": { collection: "gothic", label: "Gothic looks" },
+  "haunting-on-the-hudson": { collection: "womens-costumes", label: "Costumes" },
+};
+
 // PROPOSED launch set, pending founder approval (Step 1 review, 2026-09-23).
 // A product appears only if it is on this list AND published to the Headless
 // channel. Excluded on purpose: gore ("Bloody …"), cartoon novelty items,

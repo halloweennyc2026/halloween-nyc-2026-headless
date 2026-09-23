@@ -8,6 +8,7 @@ import { EventCard } from "@/components/EventCard";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { VenueMedia } from "@/components/VenueMedia";
+import { ShopTheLook } from "@/components/shop/ShopTheLook";
 
 export function generateStaticParams() {
   return events.map((e) => ({ slug: e.slug }));
@@ -172,6 +173,10 @@ export default async function EventPage({
           </div>
         </section>
       </Reveal>
+
+      <div className="mx-auto max-w-4xl px-5 pt-12 empty:hidden">
+        <ShopTheLook eventSlug={event.slug} />
+      </div>
 
       {(event.venuePhotos?.length || event.venueVideoYouTubeId) && (
         <Reveal>

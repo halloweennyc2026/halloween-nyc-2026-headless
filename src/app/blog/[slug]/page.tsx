@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost } from "@/lib/blog-data";
 import { events, site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
+import { ShopTheLook } from "@/components/shop/ShopTheLook";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -114,6 +115,9 @@ export default async function BlogPostPage({
               </li>
             ))}
           </ul>
+        </div>
+        <div className="mt-6 empty:hidden">
+          <ShopTheLook />
         </div>
       </div>
     </article>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { faqEntries, site } from "@/lib/site-data";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
+import { ShopTheLook } from "@/components/shop/ShopTheLook";
 
 export const metadata: Metadata = {
   title: "Halloween NYC 2026 FAQ | Tickets, Entry, Costumes & Events",
@@ -86,6 +87,9 @@ export default function FaqPage() {
             ))}
           </div>
         </Reveal>
+        <div className="mt-10 empty:hidden">
+          <ShopTheLook />
+        </div>
       </div>
     </section>
   );
