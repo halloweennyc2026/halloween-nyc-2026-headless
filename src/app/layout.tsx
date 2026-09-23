@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JsonLd } from "@/components/JsonLd";
 import { Analytics } from "@/components/Analytics";
+import { MetaPixel } from "@/components/MetaPixel";
 import { site, social } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <SiteFooter />
         <Analytics />
+        <MetaPixel />
       </body>
     </html>
   );

@@ -47,7 +47,10 @@ export interface EventRecord {
   };
   ticket: {
     status: TicketStatus;
-    platform?: "Eventbrite";
+    // Founder decision (2026-09-23): Trybe is the only ticket platform on the
+    // site, matching the ad campaigns. Each URL was fetched and matched to its
+    // event by title, date and address.
+    platform?: "Trybe";
     url?: string;
   };
   // Internal verification notes. Never rendered on the public site.
@@ -89,8 +92,8 @@ export const events: EventRecord[] = [
     },
     ticket: {
       status: "confirmed",
-      platform: "Eventbrite",
-      url: "https://www.eventbrite.com/e/1999059927055",
+      platform: "Trybe",
+      url: "https://trybe.fm/event/halloween-2026-dead-disco-public-hotel-2",
     },
     notes:
       "Address corrected to 215 Chrystie St — verified against PUBLIC Hotel's official site (publichotels.com) and independent listings. The prior \"17 Chrystie St\" did not match any verified source.",
@@ -123,8 +126,8 @@ export const events: EventRecord[] = [
     },
     ticket: {
       status: "confirmed",
-      platform: "Eventbrite",
-      url: "https://www.eventbrite.com/e/1999060291144",
+      platform: "Trybe",
+      url: "https://trybe.fm/event/halloween-2026-the-masquerade-inferno-2",
     },
     notes:
       "Renamed from \"The Masquerade\" to \"Masquerade Inferno\" — confirmed by the official event flyer (Nine & Up Group). Neighborhood corrected to Chelsea: the flyer printed \"Meatpacking,\" but 176 8th Ave is at West 19th Street — multiple independent sources (StreetEasy, RealtyHop) place that address squarely in Chelsea, several blocks north of the Meatpacking District (which sits south of West 14th St). Treating this as resolved rather than an open conflict, since the address itself settles it.",
@@ -157,8 +160,8 @@ export const events: EventRecord[] = [
     },
     ticket: {
       status: "confirmed",
-      platform: "Eventbrite",
-      url: "https://www.eventbrite.com/e/1999060500771",
+      platform: "Trybe",
+      url: "https://trybe.fm/event/halloween-2026-the-descent-submercer-soho-2",
     },
     notes:
       "Flyer date resolved: the official flyer's corner badge said \"10/30\" but its body text said \"Friday October 31st\" — October 31, 2026 is a Saturday, so those couldn't both be right. Verified directly against the official Eventbrite listing, which lists the event as \"Friday, October 30 – Saturday, October 31, 2026\": it's a late-night party that starts Friday and runs past midnight into Saturday morning. The flyer's \"31st\" was a typo (should have read \"30th\"), likely a mix-up with the early-morning hours the party runs into. Friday, October 30 — the date already shown here — is correct.",
@@ -191,8 +194,8 @@ export const events: EventRecord[] = [
     },
     ticket: {
       status: "confirmed",
-      platform: "Eventbrite",
-      url: "https://www.eventbrite.com/e/1999060648212",
+      platform: "Trybe",
+      url: "https://trybe.fm/event/halloween-2026-heaven-and-hell-eden-2",
     },
     notes:
       "Ticket link corrected: this event and Haunting on the Hudson had their Eventbrite links swapped. The listing previously assigned here (ID 1999060605083) was independently verified by fetching the page directly — it is actually titled \"Halloween 2026: Haunting on the Hudson (Boat Party)\" at Pier 78, not an Eden listing. The other ID (1999060648212), previously flagged as an unconfirmed \"duplicate,\" is verified as the real \"Heaven & Hell @ EDEN\" listing (20 West 36th Street, matching this page) and is now used here. Separately: the official event flyer prints the address as \"147 West 24th Street,\" which conflicts with \"20 W 36th St\" as shown on the live website and now also confirmed by the correct Eventbrite listing — the flyer's address appears to be the error, but flagging for founder sign-off since the flyer itself was never corrected.",
@@ -229,8 +232,8 @@ export const events: EventRecord[] = [
       // Haunting on the Hudson (Boat Party)", Pier 78 at Hudson River Park —
       // this is genuinely this event's own listing, not a guess.
       status: "confirmed",
-      platform: "Eventbrite",
-      url: "https://www.eventbrite.com/e/1999060605083",
+      platform: "Trybe",
+      url: "https://trybe.fm/event/halloween-2026-haunting-on-the-hudson-boat-party-2",
     },
     notes:
       "Ticket link resolved: this event and Heaven & Hell at Eden had their Eventbrite links swapped in the data (this ID had been assigned to Eden instead). Independently verified by fetching both listings directly — this ID (1999060605083) is titled \"Halloween 2026: Haunting on the Hudson (Boat Party)\" at Pier 78, and is now correctly assigned here; Eden's real listing (1999060648212) has been moved to Eden's page. The verified listing also gives a precise address (455 12th Ave) and a slightly later end time (4:00 AM) than previously shown — both updated to match. Boarding location and vessel name (Pier 78, S.S. Nightfall) were already confirmed by the official event flyer. No real photo/video of the specific vessel could be verified online — a generic Hudson River charter boat photo was deliberately NOT substituted, to avoid depicting the wrong boat as this event's own.",
@@ -262,8 +265,8 @@ export const events: EventRecord[] = [
     },
     ticket: {
       status: "confirmed",
-      platform: "Eventbrite",
-      url: "https://www.eventbrite.com/e/1999060749515",
+      platform: "Trybe",
+      url: "https://trybe.fm/event/halloween-2026-day-of-the-dead-1-hotel-2",
     },
     // Credit: 1 Hotels official site (1hotels.com/brooklyn-bridge/taste/harriets-rooftop).
     venuePhotos: [
