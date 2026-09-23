@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       "Explore 21+ Halloween parties, rooftop events, masquerades, boat parties and nightlife across New York City.",
     type: "website",
     url: "/",
-    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
+    images: [{ url: site.defaultOgImage, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
