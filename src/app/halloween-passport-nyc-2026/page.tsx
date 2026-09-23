@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     description:
       "Plan more of Halloween weekend with access to eligible Halloween NYC 2026 experiences. Review current details and terms.",
     url: "/halloween-passport-nyc-2026",
-    images: [{ url: passport.ogImage, width: 1254, height: 1254, alt: "Halloween Passport NYC 2026" }],
+    images: [{ url: "/og/halloween-passport.jpg", width: 1200, height: 630, alt: "Halloween Passport NYC 2026" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Halloween Passport NYC 2026 | Explore Eligible Experiences",
     description:
       "Plan more of Halloween weekend with access to eligible Halloween NYC 2026 experiences. Review current details and terms.",
-    images: [passport.ogImage],
+    images: ["/og/halloween-passport.jpg"],
   },
   alternates: { canonical: "/halloween-passport-nyc-2026" },
 };

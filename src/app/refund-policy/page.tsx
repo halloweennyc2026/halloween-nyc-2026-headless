@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Review ticket refunds, transfers, event changes and ticket-provider terms before purchasing.",
     url: "/refund-policy",
-    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
+    images: [{ url: site.defaultOgImage, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",

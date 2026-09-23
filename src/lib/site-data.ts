@@ -13,7 +13,7 @@ export const site = {
   dateRange: "October 29 – November 1, 2026",
   // Sitewide fallback social-share image for pages without their own —
   // a real venue photo (Harriet's Rooftop, 1 Hotel Brooklyn Bridge).
-  defaultOgImage: "/venues/harriets-rooftop-01.jpg",
+  defaultOgImage: "/og/default.jpg",
 } as const;
 
 export const social = {
@@ -256,7 +256,7 @@ export const events: EventRecord[] = [
     heroImage: "/events/luna-wide.jpg",
     ogImage: "/events/luna-square.jpg",
     seo: {
-      title: "LUNA: Day of the Dead at 1 Hotel | Halloween NYC 2026 Tickets",
+      title: "LUNA: Day of the Dead at 1 Hotel | Halloween NYC Tickets",
       description:
         "LUNA: Day of the Dead at 1 Hotel Brooklyn Bridge is a Halloween weekend event in NYC on Sunday, November 1, 2026. Explore details and official tickets.",
       ogTitle: "LUNA: Day of the Dead at 1 Hotel | November 1, 2026",

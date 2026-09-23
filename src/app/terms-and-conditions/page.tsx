@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Read the terms governing website use, tickets, event entry, conduct and external ticketing.",
     url: "/terms-and-conditions",
-    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
+    images: [{ url: site.defaultOgImage, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",

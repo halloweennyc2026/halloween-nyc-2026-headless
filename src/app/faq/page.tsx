@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description:
       "Find answers about tickets, entry, costumes, venues, the Halloween Passport, refunds and support.",
     url: "/faq",
-    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
+    images: [{ url: site.defaultOgImage, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",

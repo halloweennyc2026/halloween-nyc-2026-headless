@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       "Explore the venues, neighborhoods and nightlife settings behind Halloween NYC 2026 experiences.",
     url: "/venues",
-    images: [{ url: site.defaultOgImage, width: 800, height: 600, alt: site.name }],
+    images: [{ url: site.defaultOgImage, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",

@@ -42,7 +42,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "halloween-experiences-in-nyc-your-2026-guide",
-    title: "Halloween Experiences in NYC 2026 | Parties, Costumes & Nightlife",
+    title: "Halloween Experiences in NYC 2026 | Parties & Nightlife",
     description:
       "Discover Halloween experiences in NYC for 2026, from costume parties and rooftop events to masquerades, boat parties and nightlife planning.",
     ogTitle: "Halloween Experiences in NYC for 2026",

@@ -30,13 +30,13 @@ export async function generateMetadata({
       title: event.seo.ogTitle,
       description: event.seo.ogDescription,
       url: `/events/${event.slug}`,
-      images: [{ url: event.ogImage, width: 1254, height: 1254, alt: event.heroAlt }],
+      images: [{ url: `/og/${event.slug}.jpg`, width: 1200, height: 630, alt: event.heroAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: event.seo.ogTitle,
       description: event.seo.ogDescription,
-      images: [event.ogImage],
+      images: [`/og/${event.slug}.jpg`],
     },
     alternates: { canonical: `/events/${event.slug}` },
   };

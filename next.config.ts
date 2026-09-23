@@ -30,6 +30,8 @@ const wixRedirects = [
 
 const nextConfig: NextConfig = {
   images: {
+    // AVIF first (smaller), WebP fallback.
+    formats: ["image/avif", "image/webp"],
     // Product photos from the Halloween NYC Shopify store's own CDN folder only.
     remotePatterns: [
       {
