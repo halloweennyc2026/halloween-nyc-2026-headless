@@ -275,8 +275,10 @@ export const passport = {
   url: "https://posh.vip/e/halloween-passport",
   heroImage: "/events/passport-wide.jpg",
   ogImage: "/events/passport-square.jpg",
+  // Exact approved language (growth-studio legal-claims.md). Do not paraphrase.
   complianceLine:
-    "Passport checkout is provided through Posh. Passport access applies to eligible experiences and remains subject to valid 21+ ID, venue capacity, event-specific requirements and final Passport Terms.",
+    "The Halloween Passport provides access to eligible Halloween NYC 2026 experiences, subject to valid 21+ ID, venue capacity, guest-roster verification, event-specific arrival requirements and final Passport Terms.",
+  checkoutLine: "Official ticket checkout is provided through Posh.",
   // COMPLIANCE FLAG, not resolved on this site: the official Passport flyer
   // reads "ONE PASS. EVERY EXPERIENCE." and "ALL ACCESS / ALL EVENTS" — the
   // exact language this project's own rules say never to use ("all-access",

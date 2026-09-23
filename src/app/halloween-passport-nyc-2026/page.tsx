@@ -103,9 +103,95 @@ export default function PassportPage() {
         >
           Explore Passport Access on Posh ↗
         </a>
-        <p className="mx-auto mt-4 max-w-xl text-xs text-muted">
+        <p className="mx-auto mt-4 max-w-xl text-xs text-muted">{passport.checkoutLine}</p>
+        <p className="mx-auto mt-2 max-w-xl text-xs text-muted">
           {passport.complianceLine}
         </p>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-3xl space-y-10 text-sm text-muted sm:text-base">
+        <div>
+          <h2 className="font-display text-2xl text-foreground sm:text-3xl">
+            How the Passport Works
+          </h2>
+          <p className="mt-3">
+            You buy the Passport once, on Posh. Your original Passport ticket is redeemed
+            at your first eligible event check-in. After that, access to the remaining
+            eligible events is verified through an official Halloween NYC 2026 credential
+            and the Passport guest roster, so bring the same valid 21+ photo ID to every
+            door.
+          </p>
+          <p className="mt-3">
+            Halloween NYC 2026 runs from {site.dateRange}. The Passport is built for
+            guests who want to plan more than one night rather than pick a single party,
+            and the final Passport Terms set out exactly which experiences are eligible.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="font-display text-2xl text-foreground sm:text-3xl">
+            What &ldquo;Eligible&rdquo; Means
+          </h2>
+          <p className="mt-3">
+            Eligible experiences are the events and times named in the final Passport
+            Terms. The Passport doesn&apos;t guarantee entry at any time. Every entry is
+            still subject to venue capacity, ID and guest-roster checks, event-specific
+            arrival requirements and safety procedures. Some events may ask you to RSVP
+            or choose a time in advance to manage capacity, and those requirements will
+            be shared through official Passport communications.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="font-display text-2xl text-foreground sm:text-3xl">
+            Planning a Passport Weekend
+          </h2>
+          <p className="mt-3">
+            The week runs Thursday to Sunday across Manhattan, Brooklyn and the Hudson
+            River, so it helps to plan your route before you go. Check each event page for
+            its venue, address and confirmed times. Then leave time between stops for
+            travel, ID checks and check-in. If you&apos;re going as a group, make sure
+            everyone carries their own valid ID and knows how their own access works,
+            because entry is verified against the Passport guest roster. Once final Passport Terms are
+            published, read them for any timing or RSVP steps before you head out.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="font-display text-2xl text-foreground sm:text-3xl">
+            Before You Buy
+          </h2>
+          <ul className="mt-3 list-disc space-y-2 pl-5">
+            <li>All entry is 21+ with valid government-issued photo ID.</li>
+            <li>
+              Don&apos;t assume a Passport can be transferred. Transfer rules will be in
+              the final Passport Terms.
+            </li>
+            <li>
+              Keep your credential safe. Lost-credential steps will be in the final
+              Passport Terms, and a replacement isn&apos;t guaranteed.
+            </li>
+            <li>
+              Refunds follow the ticket platform&apos;s terms and our{" "}
+              <Link href="/refund-policy" className="link-underline hover:text-accent">
+                Refund Policy
+              </Link>
+              .
+            </li>
+          </ul>
+          <p className="mt-3">
+            Only planning one night? Every event also has its own page and ticket link in
+            the{" "}
+            <Link href="/events" className="link-underline hover:text-accent">
+              events lineup
+            </Link>
+            , and the{" "}
+            <Link href="/faq" className="link-underline hover:text-accent">
+              FAQ
+            </Link>{" "}
+            answers common Passport questions.
+          </p>
+        </div>
       </div>
 
       <div className="mx-auto mt-16 grid max-w-4xl gap-8 sm:grid-cols-2">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { events, faqEntries, site } from "@/lib/site-data";
+import { events, faqEntries, passport, site } from "@/lib/site-data";
+import { JsonLd } from "@/components/JsonLd";
 import { EventsByDate } from "@/components/EventsByDate";
 import { HeroVideo } from "@/components/HeroVideo";
 import { NightMotion } from "@/components/NightMotion";
@@ -33,6 +34,18 @@ const previewFaqs = faqEntries.slice(0, 4);
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": `${site.url}/#webpage`,
+          url: `${site.url}/`,
+          name: "Halloween NYC 2026 | Parties, Events & Tickets in New York",
+          isPartOf: { "@id": `${site.url}/#website` },
+          about: { "@id": `${site.url}/#organization` },
+          inLanguage: "en-US",
+        }}
+      />
       {/* Hero — always fully visible on load, no reveal/motion gating */}
       <section className="relative overflow-hidden border-b border-white/10 bg-background px-5 py-24 text-center">
         <HeroVideo />
@@ -41,7 +54,7 @@ export default function HomePage() {
             {site.dateRange} · New York City · 21+
           </p>
           <h1 className="font-display mt-4 text-5xl leading-[1.05] sm:text-7xl">
-            THE ULTIMATE
+            THE ULTIMATE{" "}
             <br />
             NYC HALLOWEEN GUIDE
           </h1>
@@ -75,7 +88,7 @@ export default function HomePage() {
               {site.name}
             </p>
             <h2 className="font-display mt-2 text-4xl leading-tight text-primary sm:text-5xl">
-              Five Venues. Four Nights.
+              Six Events. Four Nights.
             </h2>
             <p className="mt-4 text-sm text-muted sm:text-base">
               From rooftops and hidden rooms to masks, black water, and Manhattan after
@@ -109,11 +122,7 @@ export default function HomePage() {
         <section className="border-y border-white/10 bg-surface/30 px-5 py-16">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="font-display text-3xl sm:text-4xl">Halloween Passport NYC 2026</h2>
-            <p className="mt-4 text-sm text-muted sm:text-base">
-              One pass to move through a weekend of eligible Halloween NYC 2026
-              experiences — official access, subject to valid 21+ ID and final Passport
-              Terms.
-            </p>
+            <p className="mt-4 text-sm text-muted sm:text-base">{passport.complianceLine}</p>
             <Link
               href="/halloween-passport-nyc-2026"
               className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-transform hover:scale-105"
