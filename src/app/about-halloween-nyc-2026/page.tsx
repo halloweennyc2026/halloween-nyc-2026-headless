@@ -113,6 +113,48 @@ export default function AboutPage() {
         ))}
       </div>
 
+      <div className="mx-auto mt-16 max-w-3xl space-y-10 text-sm text-muted sm:text-base">
+        <div>
+          <h2 className="font-display text-3xl text-primary">Who We Are</h2>
+          <p className="mt-3">
+            Halloween NYC 2026 is operated by {site.legalName}. We bring the week&apos;s
+            events together in one place, running {site.dateRange}: rooftop nights in
+            Manhattan and Brooklyn, a masquerade in Chelsea, an underground room in SoHo,
+            a multi-level party in Midtown and a boat party on the Hudson River.
+          </p>
+        </div>
+        <div>
+          <h2 className="font-display text-3xl text-primary">What This Site Is</h2>
+          <p className="mt-3">
+            This site is the official information hub for Halloween NYC 2026. It&apos;s
+            where you&apos;ll find confirmed dates, venues, addresses and the official
+            ticket link for each event. We don&apos;t run checkout here. Every ticket
+            button opens the authorized ticket platform, and the button tells you which
+            one. If a detail isn&apos;t confirmed yet, we say so instead of guessing.
+          </p>
+        </div>
+        <div>
+          <h2 className="font-display text-3xl text-primary">21+ Only</h2>
+          <p className="mt-3">
+            Every Halloween NYC 2026 event is 21+, and guests need a valid
+            government-issued photo ID for entry. Venue rules, capacity and
+            event-specific arrival requirements still apply on the night.
+          </p>
+        </div>
+        <div>
+          <h2 className="font-display text-3xl text-primary">Get in Touch</h2>
+          <p className="mt-3">
+            For ticket help, event questions, the Halloween Passport or partnership
+            requests, email{" "}
+            <a href={`mailto:${site.email}`} className="link-underline hover:text-accent">
+              {site.email}
+            </a>
+            . For an order you&apos;ve already placed, include your full name, the event,
+            your purchase email, the ticket platform and your order number.
+          </p>
+        </div>
+      </div>
+
       <div className="mx-auto mt-16 flex max-w-3xl flex-wrap justify-center gap-6 text-sm text-muted">
         <Link href="/events" className="link-underline hover:text-accent">
           Explore Events
