@@ -68,6 +68,8 @@ export default async function EventPage({
               address: event.address ?? undefined,
             },
             description: event.description,
+            // The same square image shown on the page.
+            image: [`${site.url}${event.ogImage}`],
             // No `availability`: stock status isn't verified, so it isn't claimed.
             offers: {
               "@type": "Offer",
