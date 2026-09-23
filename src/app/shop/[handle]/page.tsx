@@ -12,6 +12,7 @@ import {
 } from "@/lib/shopify/storefront";
 import { JsonLd } from "@/components/JsonLd";
 import { ShopNotices } from "@/components/shop/ShopNotices";
+import { AddToCart } from "@/components/shop/AddToCart";
 
 export const revalidate = 300;
 
@@ -65,7 +66,6 @@ export default async function ProductPage({
 
   const url = `${site.url}/shop/${product.handle}`;
   const [mainImage, ...moreImages] = product.images;
-  const sizes = product.variants.filter((v) => v.title !== "Default Title");
 
   return (
     <>
@@ -161,27 +161,21 @@ export default async function ProductPage({
               {product.availableForSale ? formatPriceRange(product) : "Currently unavailable"}
             </p>
 
-            {sizes.length > 0 && (
-              <div className="mt-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-muted">Options</p>
-                <ul className="mt-2 flex flex-wrap gap-2">
-                  {sizes.map((v) => (
-                    <li
-                      key={v.id}
-                      className={`rounded-full border px-3 py-1 text-xs ${
-                        v.availableForSale
-                          ? "border-white/30 text-foreground"
-                          : "border-white/10 text-muted line-through"
-                      }`}
-                    >
-                      {v.title}
-                      {product.priceRange.minVariantPrice.amount !==
-                        product.priceRange.maxVariantPrice.amount && ` · ${formatMoney(v.price)}`}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div className="mt-6">
+              <AddToCart
+                handle={product.handle}
+                showPrices={
+                  product.priceRange.minVariantPrice.amount !==
+                  product.priceRange.maxVariantPrice.amount
+                }
+                variants={product.variants.map((v) => ({
+                  id: v.id,
+                  title: v.title,
+                  availableForSale: v.availableForSale,
+                  priceLabel: formatMoney(v.price),
+                }))}
+              />
+            </div>
 
             {product.description && (
               <p className="mt-6 whitespace-pre-line text-sm text-muted sm:text-base">
