@@ -75,14 +75,14 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Friday, October 30: Chelsea or SoHo",
         paragraphs: [
-          "Friday has two options. Masquerade Inferno at LouLou, 176 8th Avenue in Chelsea, is a candlelit, Parisian-inspired hideaway built around ornate masks and costumes. The Descent at Submercer, 147 1/2 Mercer Street in SoHo, starts at 10 PM and goes underground with deep house, curated lighting and haunting visuals.",
+          "Friday has two options. Masquerade Inferno at LouLou, 176 8th Avenue in Chelsea, is a candlelit, Parisian-inspired hideaway built around ornate masks and costumes. The Descent at Submercer, 147 Mercer Street in SoHo, starts at 10 PM and goes underground with deep house, curated lighting and haunting visuals.",
           "They suit different nights out. Choose the masquerade for an intimate, costume-first room, or The Descent if you want to dance. Check each event page for confirmed times before you plan a route between them.",
         ],
       },
       {
         heading: "Saturday, October 31: Halloween Night",
         paragraphs: [
-          "Halloween itself has two events, both running 10 PM to 4 AM. Heaven & Hell at Eden, 20 West 36th Street in Midtown, is a multi-level party with heaven above and hell below: two floors, two vibes, performers and elaborate décor. Haunting on the Hudson boards at Pier 78, 455 12th Avenue, for a night on the river aboard the S.S. Nightfall.",
+          "Halloween itself has two events, both starting at 10 PM. Heaven & Hell at Eden, 20 West 36th Street in Midtown, runs until 5 AM and is a multi-level party with heaven above and hell below: two floors, two vibes, performers and elaborate décor. Haunting on the Hudson boards near Hudson Yards (exact pier to be confirmed) for a night on the river aboard the S.S. Nightfall, until 4 AM.",
           "Halloween night is busy across the city, so plan your travel and give yourself time for ID checks at the door.",
         ],
       },

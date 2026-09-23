@@ -140,7 +140,7 @@ export const events: EventRecord[] = [
     slug: "the-descent-submercer-soho",
     name: "The Descent at Submercer SoHo",
     venue: "Submercer",
-    address: "147 1/2 Mercer St, New York, NY 10012",
+    address: "147 Mercer St, New York, NY 10012",
     neighborhood: "SoHo, Manhattan",
     dateLabel: "Friday, October 30, 2026",
     isoDate: "2026-10-30",
@@ -178,7 +178,7 @@ export const events: EventRecord[] = [
     neighborhood: "Midtown Manhattan",
     dateLabel: "Saturday, October 31, 2026",
     isoDate: "2026-10-31",
-    timeLabel: "10:00 PM – 4:00 AM",
+    timeLabel: "10:00 PM – 5:00 AM",
     description:
       "Two realms, one night. A multi-level Halloween experience in the heart of Midtown — journey through immersive environments inspired by heaven above and hell below, with two floors, two different vibes, music, performers and elaborate décor.",
     heroAlt: "Heaven and Hell Halloween costume party at Eden in New York City",
@@ -209,7 +209,7 @@ export const events: EventRecord[] = [
     slug: "haunting-on-the-hudson",
     name: "Haunting on the Hudson",
     venue: "S.S. Nightfall (Hudson River boat party)",
-    address: "Pier 78 at Hudson River Park, 455 12th Ave, New York, NY 10018",
+    address: "Hudson Yards, New York, NY",  // Founder 2026-09-23: exact boarding location TBC; show Hudson Yards for now
     neighborhood: "Hudson River, Manhattan",
     dateLabel: "Saturday, October 31, 2026",
     isoDate: "2026-10-31",
