@@ -62,6 +62,22 @@ export default async function BlogPostPage({
           mainEntityOfPage: `${site.url}/blog/${post.slug}`,
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: post.title.split(" | ")[0],
+              item: `${site.url}/blog/${post.slug}`,
+            },
+          ],
+        }}
+      />
       <div className="mx-auto max-w-2xl">
         <p className="text-xs text-muted">
           <Link href="/blog" className="hover:text-accent">
