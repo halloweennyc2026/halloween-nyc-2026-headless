@@ -4,6 +4,7 @@ import { NAV } from "@/lib/nav";
 import { MobileNav } from "@/components/MobileNav";
 import { InstagramIcon } from "@/components/InstagramIcon";
 import { social } from "@/lib/site-data";
+import { SHOP_LINKS_LIVE } from "@/lib/shopify/config";
 
 export function SiteHeader() {
   return (
@@ -42,6 +43,14 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          {SHOP_LINKS_LIVE && (
+            <Link
+              href="/costumes"
+              className="hidden shrink-0 rounded-full border border-white/25 px-4 py-2 text-xs font-bold uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent lg:inline-flex"
+            >
+              Shop Costumes
+            </Link>
+          )}
           <Link
             href="/events"
             className="hidden shrink-0 rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition-transform hover:scale-105 sm:inline-flex"

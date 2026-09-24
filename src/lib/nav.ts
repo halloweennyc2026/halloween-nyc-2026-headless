@@ -1,3 +1,5 @@
+import { SHOP_LINKS_LIVE } from "@/lib/shopify/config";
+
 export const NAV = [
   { href: "/", label: "Home" },
   { href: "/events", label: "Events" },
@@ -7,4 +9,5 @@ export const NAV = [
   { href: "/about-halloween-nyc-2026", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
-] as const;
+  ...(SHOP_LINKS_LIVE ? [{ href: "/costumes", label: "Costumes" }] : []),
+];

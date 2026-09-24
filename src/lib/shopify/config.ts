@@ -17,9 +17,9 @@ export const SHOP_REVALIDATE_SECONDS = 300;
 export const SHOP_INDEXABLE = false;
 
 // Master switch for links *into* the shop from the rest of the site (event
-// pages, FAQ, blog). Off until the shop has live products, so no existing
-// page ever links to a 404.
-export const SHOP_LINKS_LIVE = false;
+// pages, FAQ, blog, header nav, homepage). Turned on 2026-09-24 at the
+// founder's request. Merge only once /costumes returns 200 in production.
+export const SHOP_LINKS_LIVE = true;
 
 // PROPOSED "Shop the look" pairing of event → collection, pending founder
 // approval. Events not listed link to /shop generally.
