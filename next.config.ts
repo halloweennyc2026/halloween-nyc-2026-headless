@@ -26,6 +26,9 @@ const wixRedirects = [
   { source: "/blog-feed", destination: "/blog" },
   { source: "/blog-feed.xml", destination: "/blog" },
   { source: "/post/:slug", destination: "/blog/:slug" },
+  // Shop moved to /costumes (founder, 2026-09-23). Keep old shop URLs working.
+  { source: "/shop", destination: "/costumes" },
+  { source: "/shop/:path*", destination: "/costumes/:path*" },
 ];
 
 const nextConfig: NextConfig = {

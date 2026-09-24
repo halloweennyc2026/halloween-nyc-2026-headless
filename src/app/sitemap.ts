@@ -55,15 +55,15 @@ async function shopEntries(): Promise<MetadataRoute.Sitemap> {
   for (const c of collections) for (const p of c.products) products.set(p.handle, p.updatedAt);
 
   return [
-    { url: `${site.url}/shop`, lastModified: new Date(), changeFrequency: "daily", priority: 0.5 },
+    { url: `${site.url}/costumes`, lastModified: new Date(), changeFrequency: "daily", priority: 0.5 },
     ...collections.map((c) => ({
-      url: `${site.url}/shop/collections/${c.handle}`,
+      url: `${site.url}/costumes/collections/${c.handle}`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 0.4,
     })),
     ...[...products].map(([handle, updatedAt]) => ({
-      url: `${site.url}/shop/${handle}`,
+      url: `${site.url}/costumes/${handle}`,
       lastModified: new Date(updatedAt),
       changeFrequency: "daily" as const,
       priority: 0.4,
