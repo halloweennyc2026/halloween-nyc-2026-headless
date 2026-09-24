@@ -2,6 +2,7 @@
 // itself happens on Shopify's hosted checkout via cart.checkoutUrl.
 
 import { SHOPIFY_API_VERSION } from "./config";
+import { shopifyCredentials } from "./env";
 import type { Money, ShopImage } from "./storefront";
 
 export type CartLine = {
@@ -54,8 +55,7 @@ const CART_FIELDS = /* GraphQL */ `
 `;
 
 async function cartRequest<T>(query: string, variables: Record<string, unknown>) {
-  const domain = process.env.SHOPIFY_STORE_DOMAIN;
-  const token = process.env.SHOPIFY_STOREFRONT_TOKEN;
+  const { domain, token } = shopifyCredentials();
   if (!domain || !token) throw new Error("Shop is not configured");
 
   const res = await fetch(`https://${domain}/api/${SHOPIFY_API_VERSION}/graphql.json`, {

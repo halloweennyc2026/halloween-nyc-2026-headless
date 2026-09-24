@@ -11,6 +11,7 @@ import {
   SHOPIFY_API_VERSION,
   SHOP_REVALIDATE_SECONDS,
 } from "./config";
+import { shopifyCredentials } from "./env";
 
 export type Money = { amount: string; currencyCode: string };
 
@@ -53,12 +54,12 @@ export type ShopCollection = {
 };
 
 export function isShopConfigured() {
-  return Boolean(process.env.SHOPIFY_STORE_DOMAIN && process.env.SHOPIFY_STOREFRONT_TOKEN);
+  const { domain, token } = shopifyCredentials();
+  return Boolean(domain && token);
 }
 
 async function storefront<T>(query: string, variables: Record<string, unknown> = {}) {
-  const domain = process.env.SHOPIFY_STORE_DOMAIN;
-  const token = process.env.SHOPIFY_STOREFRONT_TOKEN;
+  const { domain, token } = shopifyCredentials();
   if (!domain || !token) return null;
 
   let res: Response;
