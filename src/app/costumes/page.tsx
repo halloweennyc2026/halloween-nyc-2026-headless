@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Shop Halloween Costumes & Accessories | Halloween NYC 2026",
     description,
-    url: "/shop",
+    url: "/costumes",
     images: [{ url: site.defaultOgImage, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description,
     images: [site.defaultOgImage],
   },
-  alternates: { canonical: "/shop" },
+  alternates: { canonical: "/costumes" },
   robots: { index: SHOP_INDEXABLE, follow: true },
 };
 
@@ -45,7 +45,7 @@ export default async function ShopPage() {
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
-            { "@type": "ListItem", position: 2, name: "Shop", item: `${site.url}/shop` },
+            { "@type": "ListItem", position: 2, name: "Shop", item: `${site.url}/costumes` },
           ],
         }}
       />
@@ -69,7 +69,7 @@ export default async function ShopPage() {
               <div className="flex items-end justify-between gap-4 border-b border-white/10 pb-3">
                 <h2 className="font-display text-2xl sm:text-3xl">{c.title}</h2>
                 <Link
-                  href={`/shop/collections/${c.handle}`}
+                  href={`/costumes/collections/${c.handle}`}
                   className="link-underline shrink-0 text-sm font-bold uppercase tracking-wide text-foreground hover:text-accent"
                 >
                   View all →

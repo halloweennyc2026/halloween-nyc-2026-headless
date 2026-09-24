@@ -41,7 +41,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${title} | Halloween NYC 2026`,
       description,
-      url: `/shop/${product.handle}`,
+      url: `/costumes/${product.handle}`,
       images: image ? [{ url: image.url, alt: image.altText || product.title }] : undefined,
     },
     twitter: {
@@ -50,7 +50,7 @@ export async function generateMetadata({
       description,
       images: image ? [image.url] : undefined,
     },
-    alternates: { canonical: `/shop/${product.handle}` },
+    alternates: { canonical: `/costumes/${product.handle}` },
     robots: { index: SHOP_INDEXABLE, follow: true },
   };
 }
@@ -64,7 +64,7 @@ export default async function ProductPage({
   const product = await getProduct(handle);
   if (!product) notFound();
 
-  const url = `${site.url}/shop/${product.handle}`;
+  const url = `${site.url}/costumes/${product.handle}`;
   const [mainImage, ...moreImages] = product.images;
 
   return (
@@ -97,7 +97,7 @@ export default async function ProductPage({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
-            { "@type": "ListItem", position: 2, name: "Shop", item: `${site.url}/shop` },
+            { "@type": "ListItem", position: 2, name: "Shop", item: `${site.url}/costumes` },
             { "@type": "ListItem", position: 3, name: product.title, item: url },
           ],
         }}
@@ -109,7 +109,7 @@ export default async function ProductPage({
             Home
           </Link>{" "}
           →{" "}
-          <Link href="/shop" className="hover:text-accent">
+          <Link href="/costumes" className="hover:text-accent">
             Shop
           </Link>{" "}
           → {product.title}

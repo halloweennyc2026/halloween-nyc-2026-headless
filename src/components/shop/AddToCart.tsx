@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useActionState, useState } from "react";
-import { addToCart, type AddToCartState } from "@/app/shop/actions";
+import { addToCart, type AddToCartState } from "@/app/costumes/actions";
 
 type VariantOption = {
   id: string;
@@ -78,7 +78,7 @@ export function AddToCart({
         {state.status === "added" && (
           <>
             Added to your cart.{" "}
-            <Link href="/shop/cart" className="link-underline font-bold hover:text-accent">
+            <Link href="/costumes/cart" className="link-underline font-bold hover:text-accent">
               View cart →
             </Link>
           </>

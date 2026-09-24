@@ -6,7 +6,7 @@ export function ProductCard({ product }: { product: ShopProduct }) {
   const image = product.featuredImage;
   return (
     <Link
-      href={`/shop/${product.handle}`}
+      href={`/costumes/${product.handle}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-surface/40 transition-[border-color,transform] duration-200 hover:border-white/40 active:scale-[0.98]"
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface">

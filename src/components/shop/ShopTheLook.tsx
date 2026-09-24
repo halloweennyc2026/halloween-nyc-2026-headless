@@ -6,7 +6,7 @@ import { EVENT_LOOKS, SHOP_LINKS_LIVE } from "@/lib/shopify/config";
 export function ShopTheLook({ eventSlug }: { eventSlug?: string }) {
   if (!SHOP_LINKS_LIVE) return null;
   const look = eventSlug ? EVENT_LOOKS[eventSlug] : undefined;
-  const href = look ? `/shop/collections/${look.collection}` : "/shop";
+  const href = look ? `/costumes/collections/${look.collection}` : "/costumes";
 
   return (
     <aside className="rounded-2xl border border-white/10 bg-surface/30 p-5">

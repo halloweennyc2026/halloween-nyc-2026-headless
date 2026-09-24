@@ -34,9 +34,9 @@ export async function generateMetadata({
     openGraph: {
       title: `${title} | Halloween NYC 2026`,
       description,
-      url: `/shop/collections/${collection.handle}`,
+      url: `/costumes/collections/${collection.handle}`,
     },
-    alternates: { canonical: `/shop/collections/${collection.handle}` },
+    alternates: { canonical: `/costumes/collections/${collection.handle}` },
     robots: { index: SHOP_INDEXABLE, follow: true },
   };
 }
@@ -58,12 +58,12 @@ export default async function CollectionPage({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
-            { "@type": "ListItem", position: 2, name: "Shop", item: `${site.url}/shop` },
+            { "@type": "ListItem", position: 2, name: "Shop", item: `${site.url}/costumes` },
             {
               "@type": "ListItem",
               position: 3,
               name: collection.title,
-              item: `${site.url}/shop/collections/${collection.handle}`,
+              item: `${site.url}/costumes/collections/${collection.handle}`,
             },
           ],
         }}
@@ -74,7 +74,7 @@ export default async function CollectionPage({
             Home
           </Link>{" "}
           →{" "}
-          <Link href="/shop" className="hover:text-accent">
+          <Link href="/costumes" className="hover:text-accent">
             Shop
           </Link>{" "}
           → {collection.title}

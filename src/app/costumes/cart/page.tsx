@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { formatMoney, isShopConfigured } from "@/lib/shopify/storefront";
-import { getCurrentCart, removeLine, updateLineQuantity } from "@/app/shop/actions";
+import { getCurrentCart, removeLine, updateLineQuantity } from "@/app/costumes/actions";
 import { ShopNotices } from "@/components/shop/ShopNotices";
 import { notFound } from "next/navigation";
 
@@ -27,7 +27,7 @@ export default async function CartPage() {
         {!cart || lines.length === 0 ? (
           <div className="mt-8 space-y-4 text-sm text-muted">
             <p>Your cart is empty.</p>
-            <Link href="/shop" className="link-underline font-bold text-foreground hover:text-accent">
+            <Link href="/costumes" className="link-underline font-bold text-foreground hover:text-accent">
               Back to the shop →
             </Link>
           </div>
@@ -52,7 +52,7 @@ export default async function CartPage() {
                     <div className="flex flex-1 flex-col justify-between gap-2 sm:flex-row sm:items-start">
                       <div>
                         <Link
-                          href={`/shop/${m.product.handle}`}
+                          href={`/costumes/${m.product.handle}`}
                           className="font-semibold hover:text-accent"
                         >
                           {m.product.title}
