@@ -6,6 +6,7 @@ import { EventsByDate } from "@/components/EventsByDate";
 import { HeroVideo } from "@/components/HeroVideo";
 import { NightMotion } from "@/components/NightMotion";
 import { Reveal } from "@/components/Reveal";
+import { SHOP_LINKS_LIVE } from "@/lib/shopify/config";
 
 export const metadata: Metadata = {
   title: "Halloween NYC 2026 | Parties, Events & Tickets in New York",
@@ -136,6 +137,31 @@ export default function HomePage() {
           </div>
         </section>
       </Reveal>
+
+      {/* Costume shop: an add-on, kept apart from ticket CTAs */}
+      {SHOP_LINKS_LIVE && (
+        <Reveal>
+          <section className="px-5 py-16">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted">Costume shop</p>
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl">Dress for the night</h2>
+              <p className="mt-4 text-sm text-muted sm:text-base">
+                Costumes and accessories from the Halloween NYC 2026 shop.
+              </p>
+              <Link
+                href="/costumes"
+                className="mt-6 inline-flex rounded-full border border-white/25 px-6 py-3 text-sm font-bold uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                Shop Costumes
+              </Link>
+              <p className="mt-4 text-xs text-muted">
+                Costumes and accessories only. Shop purchases don&apos;t include event tickets or
+                Halloween Passport access.
+              </p>
+            </div>
+          </section>
+        </Reveal>
+      )}
 
       {/* FAQ teaser */}
       <section className="px-5 py-16">

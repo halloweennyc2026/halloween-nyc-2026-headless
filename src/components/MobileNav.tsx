@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { NAV } from "@/lib/nav";
+import { SHOP_LINKS_LIVE } from "@/lib/shopify/config";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -72,6 +73,15 @@ export function MobileNav() {
             >
               Explore Events
             </Link>
+            {SHOP_LINKS_LIVE && (
+              <Link
+                href="/costumes"
+                onClick={() => setOpen(false)}
+                className="mt-3 block rounded-full border border-white/25 px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-foreground"
+              >
+                Shop Costumes
+              </Link>
+            )}
           </div>
         </div>
       )}
