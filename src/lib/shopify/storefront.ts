@@ -61,22 +61,33 @@ async function storefront<T>(query: string, variables: Record<string, unknown> =
   const token = process.env.SHOPIFY_STOREFRONT_TOKEN;
   if (!domain || !token) return null;
 
-  const res = await fetch(`https://${domain}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Shopify-Storefront-Access-Token": token,
-    },
-    body: JSON.stringify({ query, variables }),
-    next: { revalidate: SHOP_REVALIDATE_SECONDS, tags: ["shopify"] },
-  });
+  let res: Response;
+  try {
+    res = await fetch(`https://${domain}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Shopify-Storefront-Access-Token": token,
+      },
+      body: JSON.stringify({ query, variables }),
+      next: { revalidate: SHOP_REVALIDATE_SECONDS, tags: ["shopify"] },
+    });
+  } catch (err) {
+    console.error("Shopify Storefront API unreachable", err);
+    return null;
+  }
 
+  // Fail safe: a bad token or a Shopify outage must never break the build or
+  // the rest of the site. Log it and treat the shop as unavailable, which the
+  // callers already handle (the costume pages show "not found").
   if (!res.ok) {
-    throw new Error(`Shopify Storefront API responded ${res.status}`);
+    console.error(`Shopify Storefront API responded ${res.status}`);
+    return null;
   }
   const json = (await res.json()) as { data?: T; errors?: { message: string }[] };
   if (json.errors?.length) {
-    throw new Error(`Shopify Storefront API: ${json.errors.map((e) => e.message).join("; ")}`);
+    console.error(`Shopify Storefront API: ${json.errors.map((e) => e.message).join("; ")}`);
+    return null;
   }
   return json.data ?? null;
 }
