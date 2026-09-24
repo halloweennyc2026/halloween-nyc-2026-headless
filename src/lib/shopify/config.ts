@@ -30,11 +30,12 @@ export const EVENT_LOOKS: Readonly<Record<string, { collection: string; label: s
   "haunting-on-the-hudson": { collection: "womens-costumes", label: "Costumes" },
 };
 
-// PROPOSED launch set, pending founder approval (Step 1 review, 2026-09-23).
-// A product appears only if it is on this list AND published to the Headless
-// channel. Excluded on purpose: gore ("Bloody …"), cartoon novelty items,
-// character lookalikes and every kids item.
+// Products the site may show. A product appears only if it is on this list
+// AND Active and published to the Headless channel in Shopify. Founder
+// decision 2026-09-24: the shop sells the full catalogue, kids' costumes and
+// "Bloody" items included. New Shopify products need adding here.
 export const APPROVED_PRODUCT_HANDLES: readonly string[] = [
+  // Live at launch (2026-09-24)
   "faceless-spirit-robe-with-mask",
   "faceless-spirit-white-mask",
   "gothic-ghost-gown-with-bell-sleeves",
@@ -48,13 +49,41 @@ export const APPROVED_PRODUCT_HANDLES: readonly string[] = [
   "harlequin-clown-jumpsuit",
   "pirate-dress-set-with-hat-and-belt",
   "skeleton-hooded-onesie",
+  // Added 2026-09-24 (currently Draft in Shopify; they show once Active)
+  "bloody-harlequin-clown-dress",
+  "bloody-harlequin-clown-jumpsuit",
+  "bloody-skull-mask-with-red-hood",
+  "ghost-poncho-set-with-boo-headband",
+  "hooded-ghost-poncho-grin-face",
+  "hooded-ghost-poncho-shocked-face",
+  "hooded-satin-cape",
+  "jack-o-lantern-poncho-with-stem-hat",
+  "neon-skeleton-hooded-poncho",
+  "neon-skeleton-poncho",
+  "neon-smile-face-poncho",
+  "plumber-bros-dress-with-cap-and-gloves",
+  "striped-overalls-doll-jumpsuit",
+  "light-up-led-party-goggles",
+  "halloween-novelty-party-glasses",
+  "hanging-ghost-reaper-decoration",
+  "pet-spider-costume",
+  "girls-vampire-dress-set",
+  "girls-skeleton-hooded-gown",
+  "girls-hooded-skull-print-gown",
+  "girls-gothic-vampire-gown",
+  "girls-purple-witch-dress-with-hat",
+  "girls-green-witch-dress-with-hat",
+  "girls-hooded-ghost-gown-with-capelet",
+  "kids-bat-hooded-jumpsuit-with-wings",
+  "kids-grim-reaper-robe-with-skull-mask",
+  "kids-skeleton-jumpsuit-with-hood-and-mask",
 ];
 
-// Hard rule, independent of the list above: the site is 21+, so anything
-// tagged for kids never renders, even if someone adds it to the list.
-export const BLOCKED_PRODUCT_TAGS: readonly string[] = ["kids"];
+// Tags that never render, even if a handle is on the list above. Empty since
+// the founder opened the shop to kids' costumes (2026-09-24).
+export const BLOCKED_PRODUCT_TAGS: readonly string[] = [];
 
-// Collections shown on /shop, in display order. A collection with no
+// Collections shown on /costumes, in display order. A collection with no
 // approved, published products is hidden automatically.
 export const FEATURED_COLLECTION_HANDLES: readonly string[] = [
   "gothic",
@@ -62,7 +91,14 @@ export const FEATURED_COLLECTION_HANDLES: readonly string[] = [
   "womens-costumes",
   "mens-costumes",
   "couples-costumes",
+  "group-costumes",
+  "plus-size-costumes",
+  "kids-costumes",
+  "scary",
   "accessories",
+  "wigs",
+  "makeup",
+  "decor",
 ];
 
 // Delivery-time copy for dropshipped items. Must come from the supplier
